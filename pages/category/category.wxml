@@ -1,0 +1,49 @@
+<view class="container">
+	<!-- 左侧导航 -->
+	<scroll-view class="nav-left">
+		<block wx:for="{{ categories }}" wx:key="id">
+			<view
+			 class="nav-left-item {{ curNav == item.id ? 'active' : ''}}"
+			 bindtap="switchRightTab"
+			 data-index="{{ index }}"
+			 data-id="{{ item.id }}"
+			>{{ item.name }}
+			</view>
+		</block>
+	</scroll-view>
+	<!-- 右侧内容 -->
+	<scroll-view class="nav-right" scroll-y="true">
+		<view wx:if="{{ categories[curIndex].sub_cat.length>0}}">
+			<view
+			 wx:for="{{ categories[curIndex].sub_cat }}"
+			 wx:key="index"
+			 wx:for-item="first"
+			 class="products"
+			>
+				<view class="title">{{ first.name }}</view>
+				<view class="sub_item" wx:if="{{ first.sub_cat.length > 0 }}">
+					<view
+					 wx:for="{{ first.sub_cat }}"
+					 wx:key="id"
+					 wx:for-item="second"
+					 class="second"
+					 bindtap="navigateToCategoryDetail"
+					 data-message="{{ second }}"
+					>
+						<!-- 内层循环图片点击事件 -->
+						<image
+						 src="{{ second.image }}"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="true"
+						 class="second-image"
+						/>
+						<view class="second-name">{{ second.name }}
+						</view>
+					</view>
+				</view>
+				<view wx:else></view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+

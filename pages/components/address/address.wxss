@@ -1,0 +1,134 @@
+/* pages/components/address/address.wxss */
+page {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(232, 232, 232, 0.5);
+}
+
+.address {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.address text {
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.content {
+  width: 96%;
+  height: 200rpx;
+  background-color: #fff;
+  position: relative;
+  margin-left: 2%;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radio {
+  margin-left: 15rpx;
+}
+
+.content image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 30rpx;
+}
+
+.main-content {
+  flex: 2.5;
+  /* position: relative; */
+}
+
+.main-content view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.username-telphone {
+  position: absolute;
+  top: 20rpx;
+}
+
+.tag {
+  width: 70rpx;
+  border-radius: 30rpx;
+  font-size: 19rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  float: right;
+}
+
+.applet {
+  background-color: #f87016;
+}
+
+.wechat {
+  background-color: #00CD66;
+}
+
+.address-total,
+.address-detail,
+.address-code {
+  color: #828282;
+  font-size: 27rpx;
+  position: absolute;
+  left: 100rpx;
+}
+
+.address-total {
+  top: 80rpx;
+}
+
+.address-detail {
+  top: 110rpx;
+}
+
+.address-code {
+  top: 140rpx;
+}
+
+.bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-button {
+  flex: 1;
+  height: 95rpx;
+  line-height: 95rpx;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-button:nth-child(1) {
+  background-color: #00CD66;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-button:nth-child(2) {
+  background-color: #f87016;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-button image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}

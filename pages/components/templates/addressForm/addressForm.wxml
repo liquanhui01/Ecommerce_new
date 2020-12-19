@@ -1,0 +1,48 @@
+<!--pages/components/templates/addressForm/addForm.wxml-->
+<view class="section">
+	<view class="content">
+		<form>
+			<view class="content-item">
+				<text>姓名</text>
+				<input placeholder="收件人姓名" bindinput="bindUserName" />
+			</view>
+			<view class="content-item">
+				<text>手机号</text>
+				<input placeholder="收件人手机号" bindinput="bindTelPhone" />
+			</view>
+			<view class="content-item">
+				<text>省市区</text>
+				<picker
+				 mode="region"
+				 bindchange="bindRegionChange"
+				 value="{{region}}"
+				 custom-item="{{customItem}}"
+				>
+					<text class="picker style">{{region[0]}}    {{region[1]}}    {{region[2]}}</text>
+				</picker>
+			</view>
+			<view class="content-item">
+				<text>详细地址</text>
+				<input placeholder="要具体到街道、小区、门牌号等" bindinput="bindDetailInfo"></input>
+			</view>
+			<view class="content-item">
+				<text>邮政编码</text>
+				<input placeholder="所在地邮政编码" bindinput="bindPostalCode"></input>
+			</view>
+		</form>
+	</view>
+	<view class="checkbox" bindtap="changeStatus">
+		<view class="button {{ status ? 'checked': '' }}">
+			<image
+			 class="tick"
+			 src="/images/tabs/tick.png"
+			 mode="scaleToFill"
+			></image>
+		</view>
+		<text>设为默认地址</text>
+	</view>
+	<view class="bottom" bind:tap="saveAndCreate">
+		<view class="bottom-button">保存并使用</view>
+	</view>
+</view>
+

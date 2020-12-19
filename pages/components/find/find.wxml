@@ -1,0 +1,54 @@
+<view class="total">
+	<!-- 搜索框区域 -->
+	<view class="find-product">
+		<view class="left">
+			<image
+			 class="find-icon"
+			 src="/images/tabs/find.png"
+			 mode="scaleToFill"
+			></image>
+			<input
+			 class="input"
+			 autofocus
+			 placeholder="搜索商品"
+			 placeholder-class="input-placeholder"
+			 confirm-type="search"
+			 maxlength="20"
+			 bindinput="searchProduct"
+			 bindconfirm="bindSearch"
+			/>
+		</view>
+		<view class="right" bind:tap="bindSearch">搜索</view>
+	</view>
+	<!-- 搜索的内容显示区域 -->
+	<scroll-view
+	 class="products-result"
+	 scroll-y="true"
+	 style="display: {{ status }}"
+	>
+		<view wx:for="{{ search_result }}">
+			<view class="singal-product">
+				<view class="result_name">
+					{{ item.name }}
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<!-- 搜索历史区域 -->
+	<view class="history">
+		<view class="top">
+			<text>搜索历史</text>
+			<image
+			 class="delete"
+			 src="/images/tabs/delete-black.png"
+			 mode="scaleToFill"
+			></image>
+		</view>
+		<view class="history-container">
+			<view wx:for="{{ history }}" class="item">
+				<text>{{ item }}</text>
+			</view>
+		</view>
+	</view>
+</view>
+

@@ -1,0 +1,147 @@
+page {
+  margin: 0;
+  padding: 0;
+}
+
+.total_page{
+  width: 100%;
+  position: relative;
+}
+
+.total-title {
+  font-size: 40rpx;
+  width: 80%;
+  height: 40rpx;
+  text-align: center;
+  color: #3b5679;
+  position: absolute;
+  left: 10%;
+  top: 230rpx;
+}
+
+.form {
+  width: 80%;
+  height: 200rpx;
+  position: absolute;
+  left: 10%;
+  top: 300rpx;
+}
+
+.place-class{
+  font-size: 27rpx;
+  line-height: 70rpx;
+  color: #B5B5B5;
+}
+
+.number-class{
+  border: 1px solid #e8e8e8;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 20rpx;
+  font-size: 27rpx;
+}
+
+.phone{
+  margin-top: 30rpx;
+}
+
+.toast_class{
+  color: #CD3333;
+  font-size: 22rpx;
+}
+
+.username,
+.verify-code,
+.verify-button,
+.password{
+  width: 99%;
+  height: 70rpx;
+  border: 1px solid #e8e8e8;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.verify-button{
+  background-color: #e8e8e8;
+}
+
+.verify-button image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+  margin-left: 150rpx;
+}
+
+.button-content{
+  font-size: 27rpx;
+  width: 45%;
+  height: 100%;
+  line-height: 70rpx;
+  color: #B5B5B5;
+  text-align: center;
+}
+
+.time-class{
+  width: 170rpx;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  /* line-height: 70rpx; */
+  border-left: 1rpx solid #e8e8e8;
+  text-align: center;
+}
+
+.item {
+  display: inline-block;
+  width: 22px;
+  margin-top: 20rpx;
+  margin-right: 5px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+
+.active{
+  color: #3b5679;
+}
+
+.username input,
+.verify-code input,
+.password input{
+  width: 100%;
+  font-size: 27rpx;
+  padding-left: 20rpx;
+  height: 100%;
+  line-height: 70rpx;
+}
+
+.button {
+  color: white;
+  width: 99%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #3b5679;
+  border-radius: 25rpx;
+  text-align: center;
+  margin-top: 40rpx;
+  /* margin-left: 10%; */
+}
+
+.countdown-blue {
+  width: 20rpx !important;
+  height: 70rpx;
+  line-height: 70rpx !important;
+  border-radius: 50%;
+  background:white !important;
+  z-index: -1;
+  color: gray !important;
+  font-size: 25rpx;
+}
+
+.countdown-text {
+  color: gray;
+  z-index: 1000;
+}

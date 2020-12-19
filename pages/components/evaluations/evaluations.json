@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "evaluation_star": "/components/evaluation_star/evaluation_star"
+  }
+}

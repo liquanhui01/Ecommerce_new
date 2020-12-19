@@ -1,0 +1,64 @@
+page{
+  margin: 0;
+  padding: 0;
+}
+
+.setting_userinfo{
+  font-size: 24rpx;
+  position: fixed;
+  right: 10rpx;
+  top: 10rpx;
+  color: #5885CF;
+}
+
+.avatar{
+  width: 130rpx;
+  height: 130rpx;
+  margin: 40rpx auto;
+}
+
+image{
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-left: 10rpx;
+}
+
+.form{
+  width: 100%;
+  margin-top: 50rpx;
+}
+
+.content{
+  width: 80%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1rpx solid #E8E8E8;
+  margin-top: 40rpx;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 29rpx;
+  
+}
+
+.left{
+  width: 25%;
+  height: inherit;
+  text-align: left;
+}
+
+.right{
+  width: 75%;
+  height: inherit;
+  text-align: left;
+  color: gray;
+}
+
+.button{
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 100rpx;
+}

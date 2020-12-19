@@ -1,0 +1,200 @@
+page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.totalPage {
+  width: 100%;
+  height: 100%;
+  background-color: #CFCFCF;
+  margin: 0;
+  padding: 0;
+}
+
+
+.top {
+  width: 100%;
+  height: 14%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.product_image {
+  width: 21%;
+  height: 120rpx;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+
+.right {
+  margin-left: 40rpx;
+}
+
+.title {
+  width: 500rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+
+.middle {
+  width: 100%;
+  height: 38%;
+  margin-top: 2%;
+  background-color: white;
+  position: relative;
+}
+
+.textarea {
+  width: 96%;
+  height: 200rpx;
+  margin-left: 2%;
+  font-size: 29rpx;
+  position: absolute;
+  top: 20rpx;
+}
+
+.picture {
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  bottom: 20rpx;
+}
+
+.part {
+  position: relative;
+}
+
+.picture_item {
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: 16rpx;
+  margin-top: 45rpx;
+  margin-right: 10rpx;
+}
+
+.take_picture {
+  width: 158rpx;
+  height: 158rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  background-color: white;
+  border: 1px dashed #CFCFCF;
+  border-radius: 5rpx;
+  margin-top: 45rpx;
+}
+
+.picture_icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 50rpx;
+  margin-top: 35rpx;
+}
+
+.take_picture view {
+  width: 100%;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.deleteImage {
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 35rpx;
+  right: -5rpx;
+  background-color: #B5B5B5;
+}
+
+.other {
+  width: 100%;
+  height: 46%;
+  background-color: white;
+  margin-top: 2%;
+  position: absolute;
+  bottom: 0;
+}
+
+.other_total_title {
+  margin-left: 10rpx;
+  font-size: 29rpx;
+  margin-top: 40rpx;
+}
+
+.other_total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.other_total evaluation_star {
+  margin-right: 10rpx;
+}
+
+.other_total .title {
+  margin-left: 10rpx;
+  font-size: 25rpx;
+}
+
+.operation_area {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+}
+
+.anonymous {
+  width: 150rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.anonymous_title {
+  margin-left: 10rpx;
+  font-size: 30rpx;
+}
+
+.anonymous image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.submitEvaluation {
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: red;
+  border-radius: 27rpx;
+  margin-bottom: 15rpx;
+  margin-right: 15rpx;
+  color: white;
+}
+
+.remaining_words {
+  width: 100rpx;
+  height: 30rpx;
+  position: fixed;
+  top: 400rpx;
+  right: 0;
+  font-size: 23rpx;
+  color: red;
+}

@@ -1,0 +1,83 @@
+<view class="totalPage">
+	<view class="top">
+		<image class="product_image" src="http://localhost:8000/media/product-detail/tea-gift01.png">
+		</image>
+		<!-- 使用自定义组件：评论星星 -->
+		<view class="right">
+			<view class="title">商品评价</view>
+			<evaluation_star id="evaluation_star" bindgetCount="getTotalCount"></evaluation_star>
+		</view>
+	</view>
+	<view class="middle">
+		<textarea
+		 placeholder="从多个角度评价宝贝，可以帮助更多想买的人"
+		 maxlength="200"
+		 placeholder-style="font-size: 29rpx"
+		 class="textarea"
+		 bindinput="getEvaluationDetailContent"
+		 bindconfirm="confirm"
+		></textarea>
+		<scroll-view
+		 class="picture"
+		 scroll-y="true"
+		 enable-flex="true"
+		 row="10"
+		>
+			<view wx:for="{{ picture_list }}" class="part">
+				<image
+				 class="picture_item"
+				 src="{{ item }}"
+				 bind:tap="previewImage"
+				 data-src="{{ item }}"
+				>
+				</image>
+				<image
+				 class="deleteImage"
+				 src="/images/tabs/close_white.png"
+				 bind:tap="deleteImage"
+				 data-index="{{ index }}"
+				></image>
+			</view>
+			<view class="take_picture" bind:tap="selectImages">
+				<image
+				 class="picture_icon"
+				 src="/images/tabs/picture_icon.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+				<view class="">为宝贝拍买家秀</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="other">
+		<text class="other_total_title">物流评分服务</text>
+		<view class="other_total">
+			<text class="title">商品包装</text>
+			<evaluation_star id="evaluation_star" bindgetCount="getProductCount"></evaluation_star>
+		</view>
+		<view class="other_total">
+			<text class="title">物流配送速度</text>
+			<evaluation_star bindgetCount="getTransportCount"></evaluation_star>
+		</view>
+		<view class="other_total">
+			<text class="title">配送员服务态度</text>
+			<evaluation_star bindgetCount="getPersonServiceCount"></evaluation_star>
+		</view>
+	</view>
+	<view class="operation_area">
+		<view class="anonymous">
+			<image
+			 src="{{ anonymous_status ? '/images/tabs/tick_selected.png' : '/images/tabs/tick.png'}}"
+			 mode="aspectFit|aspectFill|widthFix"
+			 bind:tap="changeTickStatus"
+			>
+			</image>
+			<view class="anonymous_title">匿名</view>
+		</view>
+		<view class="submitEvaluation" bind:tap="submitEvaluation">发表评论</view>
+	</view>
+	<view class="remaining_words">
+		剩余 {{ remaining_words }}
+	</view>
+</view>
+

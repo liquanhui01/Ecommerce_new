@@ -1,0 +1,27 @@
+<view class="total">
+	<!--导航栏-->
+	<view class="tab">
+		<view class="{{ all_status ? 'active' : '' }}" bind:tap="changeAllStatus">全部</view>
+		<view class="{{ new_status ? 'active' : '' }}" bind:tap="changeNewStatus">最新</view>
+		<view class="{{ picture_status ? 'active' : '' }}" bind:tap="changePictureStatus">有图</view>
+	</view>
+	<!--评论区-->
+	<scroll-view
+	 scroll-y="true"
+	 enable-flex="true"
+	 class="evaluations"
+	>
+		<view class="item">
+			<view class="top">
+				<image
+				 class="avatar"
+				 src=""
+				 mode="aspectFit|aspectFill|widthFix"
+				></image>
+				<view class="name">名字</view>
+				<view class="date">2020-11-25</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+

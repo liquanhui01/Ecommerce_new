@@ -1,0 +1,35 @@
+<view class="total_page">
+	<view class="total-title">
+		手机注册
+	</view>
+	<view class="form">
+		<view class="username">
+			<input type="text" value="{{userInfo.username}}" placeholder="请输入用户名" placeholder-class="place-class" bindinput="getUsername"/>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.username }}">*{{ err_msg.username }}</view>
+		<view class="phone">
+			<input type="text" value="{{userInfo.phone}}" placeholder="您的注册手机号" placeholder-class="place-class" class="number-class" bindinput="getPhone"/>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.phone }}">*{{ err_msg.phone }}</view>
+		<view wx:if="{{ view_status == true }}"  class="verify-button" bind:tap="verifybutton">
+			<image src="{{ verify_status ? '/images/tabs/verify_selected.png' : '/images/tabs/verify.png' }}"></image>
+			<view class="button-content {{ verify_status ? 'active' : '' }}">请点击按钮获取验证码</view>
+			<i class="fa fa-shield" aria-hidden="true"></i>
+		</view>
+		<view class="verify-code">
+			<input type="text" value="{{userInfo.code}}" placeholder="请输入验证码" placeholder-class="place-class" bindinput="getVerifyCode"/>
+			<view class="time-class">
+				<l-countdown time-type="second" l-class-time="countdown-blue" l-class="countdown-text" status="{{time_status}}" time="{{time}}" format="{%s}秒" />
+			</view>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.code }}">*{{ err_msg.code }}</view>
+		<view class="password">
+			<input type="text" value="{{userInfo.password}}" placeholder-class="place-class" placeholder="密码为8-24位，至少包含数字、大小写英文字母" bindinput="getPassword"/>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.password }}">*{{ err_msg.password }}</view>
+		<view class="button" bind:tap="submitUserInfo">注册</view>
+	</view>
+	<!-- 显示 success 的提示框 -->
+	<l-toast />
+</view>
+

@@ -1,0 +1,21 @@
+<view>
+  <view class="setting_userinfo" bind:tap="navigateToUpdatePage">设置手机账户</view>
+  <view class="avatar">
+    <image src="{{ access_token.avatar ? access_token.avatar : '/images/tabs/default_avatar.png' }}" />
+  </view>
+  <view class="form">
+    <view class="content">
+      <view class="left">用户名</view>
+      <view class="right">{{ access_token.username }}</view>
+    </view>
+    <view class="content">
+      <view class="left">注册时间</view>
+      <view class="right">{{ access_token.created_at }}</view>
+    </view>
+    <view class="content">
+      <view class="left">用户类型</view>
+      <view class="right">{{ access_token.user_type == 1 ? '微信用户' : '手机用户' }}</view>
+    </view>
+  </view>
+  <l-button l-class="button" plain="{{true}}" bind:tap="userLogout">退出登陆</l-button>
+</view>

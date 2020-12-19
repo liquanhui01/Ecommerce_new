@@ -1,0 +1,19 @@
+<view class="total">
+	<view
+	 class="list"
+	 wx:for="{{ stars_list }}"
+	 wx:key="index"
+	>
+		<view class="item_star">
+			<image
+			 class="star"
+			 src="{{ item }}"
+			 mode="aspectFit|aspectFill|widthFix"
+			 bind:tap="addStar"
+			 data-index="{{index}}"
+			></image>
+		</view>
+	</view>
+	<view class="star_content">{{ star_content }}</view>
+</view>
+

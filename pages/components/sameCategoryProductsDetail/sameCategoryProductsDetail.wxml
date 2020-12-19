@@ -1,0 +1,156 @@
+<view>
+	<!--头部导航栏-->
+	<view
+	 class="top_nav"
+	 style="visibility: {{ top_nav ? 'hidden' : 'visible' }}"
+	 bindtap="onPageScroll"
+	>
+		<view class="all">
+			<view
+			 class="title"
+			 style="color: {{ all_status == true ? 'red': '' }}"
+			 bind:tap="changeAllStatus"
+			>全部
+			</view>
+		</view>
+		<view class="shop_price" bind:tap="changeShopStatus">
+			<view class="title">价格</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ shop_icon == 'hidden' ? '/images/tabs/ordering.png' : (shop_status == true ? '/images/tabs/down_selected.png' : '/images/tabs/up_selected.png') }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+		<view class="sold_num" bind:tap="changeSoldStatus">
+			<view class="title">销量</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ sold_icon == 'hidden' ? '/images/tabs/ordering.png' : (sold_status == true ? '/images/tabs/down_selected.png' : '/images/tabs/up_selected.png') }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+		<view class="filter" bind:tap="changeFilterStatus">
+			<view class="title">筛选</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ filter_status ? '/images/tabs/filter_selected.png': '/images/tabs/filter.png' }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+	</view>
+	<view class="top_nav_base" style="visibility: {{ top_nav_base ? 'hidden' : 'visible' }}">
+		<view class="all">
+			<view
+			 class="title"
+			 style="color: {{ all_status == true ? 'red': '' }}"
+			 bind:tap="changeAllStatus"
+			>全部
+			</view>
+		</view>
+		<view class="shop_price" bind:tap="changeShopStatus">
+			<view class="title">价格</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ shop_icon == 'hidden' ? '/images/tabs/ordering.png' : (shop_status == true ? '/images/tabs/down_selected.png' : '/images/tabs/up_selected.png') }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+		<view class="sold_num" bind:tap="changeSoldStatus">
+			<view class="title">销量</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ sold_icon == 'hidden' ? '/images/tabs/ordering.png' : (sold_status == true ? '/images/tabs/down_selected.png' : '/images/tabs/up_selected.png') }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+		<view class="filter" bind:tap="changeFilterStatus">
+			<view class="title">筛选</view>
+			<view class="title_icons">
+				<image
+				 class="title_image"
+				 src="{{ filter_status ? '/images/tabs/filter_selected.png': '/images/tabs/filter.png' }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				>
+				</image>
+			</view>
+		</view>
+	</view>
+	<!--商品展示区-->
+	<view class="bottom_products">
+		<view
+		 class="item"
+		 wx:for="{{ products }}"
+		 wx:key="id"
+		>
+			<view
+			 class="item-condition"
+			 wx:if="{{ item.products_num > 0 }}"
+			 bind:tap="NavigateToProductDetailPage"
+			 data-id="{{ item.id }}"
+			>
+				<image class="product_image" src="{{ item.products_front_image }}"></image>
+				<view class="product_title">{{ item.product_name }}</view>
+				<view class="price">
+					<view class="product_shop_price">¥{{ item.shop_price }}</view>
+					<view class="product_market_price">¥{{ item.market_price }}</view>
+				</view>
+				<view class="sold">已卖出 {{ item.sold_num }}件</view>
+			</view>
+			<view class="item-condition-not" wx:else>
+				<image class="product_image" src="{{ item.products_front_image }}"></image>
+				<view class="product_title">{{ item.product_name }}</view>
+				<view class="price">
+					<view class="product_shop_price">¥{{ item.shop_price }}</view>
+					<view class="product_market_price">¥{{ item.market_price }}</view>
+				</view>
+				<view class="sold">已卖出 {{ item.sold_num }} 件</view>
+				<!--<view class="sold_out">-->
+				<view class="inside">已售罄</view>
+				<!--</view>-->
+			</view>
+		</view>
+	</view>
+</view>
+<!--筛选条件选择区域-->
+<view class="filter_content" style="visibility: {{ filter_content_status ? 'hidden' : 'visible'}}">
+	<text class="filter_content_title">价格区间:</text>
+	<view class="price_range">
+		<input
+		 type="text"
+		 class="input"
+		 placeholder="最低价"
+		 placeholder-class="placeholderStyle"
+		 bindinput="getlowestPrice"
+		 value="{{lowest}}"
+		/>
+		<view class="line"> - </view>
+		<input
+		 type="text"
+		 class="input"
+		 placeholder="最高价"
+		 placeholder-class="placeholderStyle"
+		 bindinput="gethighestPrice"
+		 value="{{highest}}"
+		/>
+	</view>
+	<view class="button">
+		<view class="reset" bind:tap="resetValues">重置</view>
+		<view class="submit" bind:tap="submitValues">提交</view>
+	</view>
+</view>
+

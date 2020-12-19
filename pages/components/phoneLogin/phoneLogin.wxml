@@ -1,0 +1,25 @@
+<view class="total_page">
+	<view class="total-title">验证码登陆</view>
+	<view class="form">
+		<view class="phone">
+			<input type="text" value="{{userInfo.phone}}" placeholder="您的登陆手机号" placeholder-class="place-class" class="number-class" bindinput="getPhone"/>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.phone }}">*{{ err_msg.phone }}</view>
+		<view class="verify-code">
+			<input type="text" value="{{userInfo.code}}" placeholder="请输入验证码" placeholder-class="place-class" bindinput="getVerifyCode"/>
+			<view  bindtap="{{ send_code == false ? 'sendVerifyCode' : ''}}">
+				<view class="time-class">
+					<view wx:if="{{ send_code == false}}" class="send_code">发送验证码</view>
+					<l-countdown wx:else time-type="second" l-class-time="countdown-blue" l-class="countdown-text" status="{{time_status}}" time="{{time}}" bind:linend="changeVerifyStatus" format="{%s}秒" />
+				</view>
+			</view>
+		</view>
+		<view class="toast_class" wx:if="{{ err_msg.code }}">*{{ err_msg.code }}</view>
+		<view class="navigate_class">
+			<view bindtap="navigateToPasswordLoginPage">密码登陆</view>
+			<view bindtap="navigateToSignupPage">前往注册账户</view>
+		</view>
+		<view class="button" bind:tap="submitUserInfo">登陆</view>
+	</view>
+	<l-toast />
+</view>

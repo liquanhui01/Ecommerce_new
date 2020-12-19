@@ -1,0 +1,221 @@
+<view class="total">
+	<!-- 头部导航栏 -->
+	<view class="nav">
+		<view class="{{ navStatus == 'products' ? 'active' : '' }}">商品</view>
+		<view class="{{ navStatus == 'evaluation' ? 'active' : '' }}">评价</view>
+		<view class="{{ navStatus == 'detail' ? 'active' : '' }}">详情</view>
+	</view>
+	<!-- 轮播图 -->
+	<swiper
+	 autoplay="true"
+	 interval="3000"
+	 circular="true"
+	 easing-function="linear"
+	 indicator-dots="true"
+	 bindchange="swiperChange"
+	 class="swiper"
+	>
+		<block wx:for="{{ swiper }}" wx:key="index">
+			<swiper-item>
+				<image
+				 class="swiper-image"
+				 src="{{ item }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="pageCount">{{ page }}/{{ swiperLength }}</view>
+	<!-- 产品区域 -->
+	<view class="product" bind-tap="onPageScroll">
+		<view class="top">
+			<view class="price">¥{{ products.shop_price }}</view>
+			<view class="title">
+				{{ products.product_name }}
+			</view>
+		</view>
+		<view class="bottom">
+			<view class="first">
+				<view class="chosen">已选</view>
+				<view class="title">
+					<text>{{ products.product_name }}     x{{ buy_count }}</text>
+					<image
+					 class="next-page"
+					 src="/images/tabs/nextPage.png"
+					 mode="scaleToFill"
+					 bindtap="openPopupBox"
+					></image>
+				</view>
+			</view>
+			<view class="second">
+				<view class="send">送至</view>
+				<view class="address-content">
+					<image
+					 class="address-image"
+					 src="/images/tabs/product-address.png"
+					 mode="scaleToFill"
+					></image>
+					<text class="address">{{ address }}</text>
+				</view>
+				<image
+				 class="next-page"
+				 src="/images/tabs/nextPage.png"
+				 mode="scaleToFill"
+				 bind:tap="navigateToAddressPage"
+				></image>
+			</view>
+		</view>
+	</view>
+	<!-- 用户评价区域 -->
+	<view class="user-evaluations">
+		<view class="top">
+			<view class="evaluations-title">用户评价({{ userEvaluations.length }})</view>
+			<view class="evaluations-top-right">
+				<view class="good-rate">
+					<text>{{ 95 }}%</text>
+					好评率
+				</view>
+				<image
+				 class="evaluations-next-page"
+				 src="/images/tabs/nextPage.png"
+				 mode="scaleToFill"
+				></image>
+			</view>
+		</view>
+		<scroll-view
+		 scroll-x="true"
+		 enable-flex="true"
+		 class="middle"
+		>
+			<!-- 部分用户评论 -->
+			<view
+			 wx:for="{{ userEvaluations }}"
+			 wx:key="id"
+			 class="evaluation-item"
+			>
+				<view class="item-container">
+					<view class="evaluation-item-left">
+						<view class="top">
+							<image
+							 class="avatar"
+							 src="{{ item.avatar }}"
+							 mode="scaleToFill"
+							></image>
+							<text>{{ item.name }}</text>
+						</view>
+						<view class="content">{{ item.content }}</view>
+						<view class="time">{{ item.datetime }}</view>
+					</view>
+					<view class="evaluation-item-right">
+						<image src="{{ item.productImages[0] }}" mode="scaleToFill"></image>
+					</view>
+				</view>
+			</view>
+			<view class="more" bindtap="navigateToEvaluationsPage">
+				<image
+				 class="more-image"
+				 src="/images/tabs/more.png"
+				 mode="scaleToFill"
+				></image>
+				<view class="title">查看更多</view>
+			</view>
+		</scroll-view>
+		<view class="bottom" bindtap="navigateToEvaluationsPage">
+			<view class="evaluations-button">查看全部评价</view>
+		</view>
+	</view>
+	<!-- 分割线 -->
+	<view class="dividing-line">商品详情</view>
+	<!-- 商品详情介绍区域 -->
+	<view class="description">
+		<view
+		 class="content"
+		 wx:for="{{ content }}"
+		 wx:key="index"
+		>
+			<image src="{{ item }}" mode="aspectFit|aspectFill|widthFix"></image>
+		</view>
+		<view class="empty"></view>
+	</view>
+	<!-- 操作栏 -->
+	<view class="operation">
+		<view class="left">
+			<image
+			 wx:if="{{ favirate == false }}"
+			 class="favirate"
+			 src="/images/tabs/favirate.png"
+			 mode="scaleToFill"
+			 bindtap="favirateOrNot"
+			/>
+			<image
+			 wx:else
+			 class="favirate"
+			 src="/images/tabs/favirate-selected.png"
+			 mode="scaleToFill"
+			 bindtap="favirateOrNot"
+			/>
+		</view>
+		<view class="middle">
+			<image
+			 class="cart-page"
+			 src="/images/tabs/cart01.png"
+			 mode="scaleToFill"
+			 bindtap="navigateToCartPage"
+			></image>
+			<view class="cart-product-count">10</view>
+		</view>
+		<view class="right">
+			<view class="addCart-page">加入购物车</view>
+			<view class="buy-page">立即购买</view>
+		</view>
+	</view>
+	<!-- 商品选择详情框弹窗 -->
+	<view class="product-select-box" style="display: {{ popupShow ? 'block' : 'none' }}">
+		<view class="close" bindtap="closePopupBox">
+			<image
+			 class="close-image"
+			 src="/images/tabs/close.png"
+			 mode="scaleToFill"
+			></image>
+		</view>
+		<view class="prodcut-message">
+			<image
+			 class="prodcut-image"
+			 src="{{ content[0] }}"
+			 mode="scaleToFill"
+			></image>
+			<view class="right">
+				<view class="price">¥{{ products.shop_price }}</view>
+				<view class="title">{{ products.product_name }}</view>
+			</view>
+		</view>
+		<view class="count">
+			<view class="name">购买数量</view>
+			<view class="right">
+				<image
+				 wx:if="{{ lessStatus == true }}"
+				 src="/images/tabs/less.png"
+				 mode="scaleToFill"
+				 bind:tap="lessCount"
+				></image>
+				<image
+				 wx:else
+				 src="/images/tabs/less-ban.png"
+				 mode="scaleToFill"
+				 bind:tap="lessCount"
+				></image>
+				<text class="product-count">{{ buy_count }}</text>
+				<image
+				 src="/images/tabs/add.png"
+				 mode="scaleToFill"
+				 bind:tap="addCount"
+				></image>
+			</view>
+		</view>
+		<view class="button">
+			<view class="cart">加入购物车</view>
+			<view class="buy">立即购买</view>
+		</view>
+	</view>
+</view>
+

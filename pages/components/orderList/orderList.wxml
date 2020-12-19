@@ -1,0 +1,53 @@
+<!--pages/components/orderList/orderList.wxml-->
+<import src="/pages/components/templates/orderTemplate/orderTemplate.wxml" />
+
+<view class="container">
+	<view class="group {{ active == '0' ? 'active': '' }}">
+		<text bind:tap="checkTotalTap" data-index="0">全部</text>
+		<view class="content" wx:if="{{ totalOrderMessages.length !=0 }}">
+			<template is="totalOrderTemplate" data="{{ totalOrderMessages }}"></template>
+		</view>
+		<view class="content" wx:else>
+			<image class="empty-page-image" src="/images/tabs/empty.png" mode="scaleToFill"></image>
+			<view>
+				<text class="empty-page-text">页面空空如也</text>
+			</view>
+		</view>
+	</view>
+	<view class="group {{ active == '1' ? 'active': '' }}">
+		<text bind:tap="checkWillPayTap" data-index="1">待付款</text>
+		<view class="content" wx:if="{{ willPay.length != 0 }}">
+			<template is="willPayTemplate" data="{{ willPay }}"></template>
+		</view>
+		<view class="content" wx:else>
+			<image class="empty-page-image" src="/images/tabs/empty.png" mode="scaleToFill"></image>
+			<view>
+				<text class="empty-page-text">页面空空如也</text>
+			</view>
+		</view>
+	</view>
+	<view class="group {{ active == '2' ? 'active': '' }}">
+		<text bind:tap="checkShippedTap" data-index="2">待收货</text>
+		<view class="content" wx:if="{{ shipped.length != 0 }}">
+			<template is="shippedTemplate" data="{{ shipped }}"></template>
+		</view>
+		<view class="content" wx:else>
+			<image class="empty-page-image" src="/images/tabs/empty.png" mode="scaleToFill"></image>
+			<view>
+				<text class="empty-page-text">页面空空如也</text>
+			</view>
+		</view>
+	</view>
+	<view class="group {{ active == '3' ? 'active': '' }}">
+		<text bindtap="checkReceivedTap" data-index="3">已完成</text>
+		<view class="content" wx:if="{{ received.length != 0 }}">
+			<template is="receivedTemplate" data="{{ received }}"></template>
+		</view>
+		<view class="content" wx:else>
+			<image class="empty-page-image" src="/images/tabs/empty.png" mode="scaleToFill"></image>
+			<view>
+				<text class="empty-page-text">页面空空如也</text>
+			</view>
+		</view>
+	</view>
+</view>

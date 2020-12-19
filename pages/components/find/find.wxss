@@ -1,0 +1,131 @@
+page {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(232, 232, 232, 0.2);
+}
+
+.total {
+  width: 100%;
+}
+
+.find-product {
+  width: 98%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 2%;
+}
+
+.find-product .left {
+  width: 82%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.input {
+  width: 85%;
+  height: 100%;
+  margin-left: 30rpx;
+  font-size: 27rpx;
+}
+
+.find-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+}
+
+.find-product .right {
+  width: 13%;
+  height: 100%;
+  font-size: 29rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.input-placeholder {
+  font-size: 27rpx;
+  color: gray;
+}
+
+.history {
+  width: 100%;
+  height: 250rpx;
+  background-color: white;
+	margin-top: 30rpx;
+	z-index: -1000;
+}
+
+.history .top {
+  display: flex;
+  width: 100%;
+  height: 70rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.history .top text {
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.delete {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 30rpx;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  height: 30rpx;
+  background-color: #CFCFCF;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+  border-radius: 20rpx;
+  color: white;
+  font-size: 20rpx;
+  padding: 7rpx;
+}
+
+/* 
+ * 商品显示区域
+ */
+.products-result {
+	width: 603rpx;
+	height: 300rpx;
+	background: white;
+	position: absolute;
+	left: 39rpx;
+	top: 78rpx;
+	z-index: 1000;
+	display: none;
+}
+
+.singal-product {
+  height: 80rpx;
+  width: 100%;
+}
+
+.result_name{
+	margin-left: 75rpx;
+	color: gray;
+	font-size: 25rpx;
+	height: 80rpx;
+	line-height: 60rpx;
+}

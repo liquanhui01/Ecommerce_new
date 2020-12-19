@@ -1,0 +1,124 @@
+<!--pages/components/templates/orderTemplate/orderTemplate.wxml-->
+<!-- 订单首页模版 -->
+<template name="totalOrderTemplate" class="template">
+	<view wx:for="{{ totalOrderMessages }}" wx:key="orderId">
+		<view class="order-list">
+			<view class="template-top">
+				<text>编号：{{ item.orderId }}</text>
+				<text wx:if="{{ item.status == 0 }}">剩余时间：{{ item.time }}</text>
+				<text wx:else>{{ item.time }}</text>
+			</view>
+			<view class="template-middle">
+				<view class="products-item" wx:for="{{ item.products }}" wx:key="title">
+					<image class="img" src="{{ item.image }}" mode="scaleToFill"></image>
+					<view>
+						<text>{{ item.title }}</text>
+						<text>{{ item.count }}件 {{ item.price }}元</text>
+					</view>
+				</view>
+			</view>
+			<view class="template-bottom">
+				<view class="total">共{{ item.totalcount }}件商品，总计{{ item.totalPrice }}元</view>
+				<view wx:if="{{ item.status == 0 }}" class="button-group">
+					<view class="template-button">取消订单</view>
+					<view class="template-button">修改订单</view>
+					<view class="template-button">支 付</view>
+				</view>
+				<view wx:elif="{{ item.status == 1 }}" class="button-group">
+					<view class="template-button">再次购买</view>
+					<view class="template-button">申请退款</view>
+					<view class="template-button">我要催单</view>
+					<view class="template-button">确认收货</view>
+				</view>
+				<view wx:else class="button-group">
+					<view class="template-button">评价</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+<!-- 待付款模版 -->
+<template name="willPayTemplate" class="template">
+	<view wx:for="{{ willPay }}" wx:key="orderId">
+		<view class="order-list">
+			<view class="template-top">
+				<text>编号：{{ item.orderId }}</text>
+				<text>剩余时间：{{ item.time }}</text>
+			</view>
+			<view class="template-middle">
+				<view class="products-item" wx:for="{{ item.products }}" wx:key="title">
+					<image class="img" src="{{ item.image }}" mode="scaleToFill"></image>
+					<view>
+						<text>{{ item.title }}</text>
+						<text>{{ item.count }}件 {{ item.price }}元</text>
+					</view>
+				</view>
+			</view>
+			<view class="template-bottom">
+				<view class="total">共{{ item.totalcount }}件商品，总计{{ item.totalPrice }}元</view>
+				<view class="button-group">
+					<view class="template-button">取消订单</view>
+					<view class="template-button">修改订单</view>
+					<view class="template-button">支 付</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<!-- 待收货模版 -->
+<template name="shippedTemplate" class="template">
+	<view wx:for="{{ shipped }}" wx:key="orderId">
+		<view class="order-list">
+			<view class="template-top">
+				<text>编号：{{ item.orderId }}</text>
+				<text>{{ item.time }}</text>
+			</view>
+			<view class="template-middle">
+				<view class="products-item" wx:for="{{ item.products }}" wx:key="title">
+					<image class="img" src="{{ item.image }}" mode="scaleToFill"></image>
+					<view>
+						<text>{{ item.title }}</text>
+						<text>{{ item.count }}件 {{ item.price }}元</text>
+					</view>
+				</view>
+			</view>
+			<view class="template-bottom">
+				<view class="total">共{{ item.totalcount }}件商品，总计{{ item.totalPrice }}元</view>
+				<view class="button-group">
+					<view class="template-button">再次购买</view>
+					<view class="template-button">申请退款</view>
+					<view class="template-button">我要催单</view>
+					<view class="template-button">确认收货</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<!-- 已完成模版 -->
+<template name="receivedTemplate" class="template">
+	<view wx:for="{{ received }}" wx:key="orderId">
+		<view class="order-list">
+			<view class="template-top">
+				<text>编号：{{ item.orderId }}</text>
+				<text>{{ item.time }}</text>
+			</view>
+			<view class="template-middle">
+				<view class="products-item" wx:for="{{ item.products }}" wx:key="title">
+					<image class="img" src="{{ item.image }}" mode="scaleToFill"></image>
+					<view>
+						<text>{{ item.title }}</text>
+						<text>{{ item.count }}件 {{ item.price }}元</text>
+					</view>
+				</view>
+			</view>
+			<view class="template-bottom">
+				<view class="total">共{{ item.totalcount }}件商品，总计{{ item.totalPrice }}元</view>
+				<view class="button-group">
+					<view class="template-button">评价</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

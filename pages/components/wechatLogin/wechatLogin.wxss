@@ -1,0 +1,68 @@
+.title{
+  color: #5885CF;
+  font-size: 38rpx;
+  text-align: center;
+  margin-top: 200rpx;
+}
+
+.cancle-login{
+  font-size: 24rpx;
+  color: gray;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.protocol{
+  height: 500rpx;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 0;
+  border-top: 1rpx solid #e8e8e8;
+  padding: 5rpx;
+}
+
+.protocol image{
+  width: 30rpx;
+  height: 30rpx;
+  position: fixed;
+  right: 0;
+  bottom: 496rpx;
+  z-index: 1000;
+  border-radius: 1rpx solid gray;
+}
+
+scroll-view{
+  height: 500rpx;
+}
+
+.protocol-title{
+  color: green;
+}
+
+.select_total{
+  width: 60%;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-left: 20%;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+
+.select_class{
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid gray;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 5rpx;
+}
+
+.active{
+  border: 1rpx solid green;
+  border-radius: 50%;
+  background-color: green;
+}

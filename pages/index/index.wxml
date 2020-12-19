@@ -1,0 +1,108 @@
+<view class="total">
+	<!-- 搜索框 -->
+	<view class="find-product" bind:tap="navigateToFindPage">
+		<image class="find-product-icon" src="/images/tabs/find-white.png" mode="scaleToFill"></image>
+		<text>搜索</text>
+	</view>
+	<!-- 轮播图区域 -->
+	<view class="swiper-total">
+		<swiper class="swiper" 
+			indicator-dots="true" 
+			autoplay="true" 
+			interval="5000" 
+			duration="1000">
+			<view wx:for="{{ swiper }}">
+				<swiper-item>
+					<image class="swiper-image" src="{{ item.image }}" mode="scaleToFill"></image>
+				</swiper-item>
+			</view>
+		</swiper>
+		<view class="swiper-description">
+			<view>
+				<image class="swiper-description-image" src="/images/tabs/official.png" mode="scaleToFill"></image>
+				<text>官方商城</text>
+			</view>
+			<view>
+				<image class="swiper-description-image" src="/images/tabs/protect.png" mode="scaleToFill"></image>
+				<text>正品保障</text>
+			</view>
+			<view>
+				<image class="swiper-description-image" src="/images/tabs/sale-after-icon.png" mode="scaleToFill"></image>
+				<text>售后无忧</text>
+			</view>
+		</view>
+	</view>
+	<!-- 分割线 -->
+	<view class="dividing-line-new-product">
+		新品展区
+	</view>
+	<!-- 新品展区 -->
+	<view class="new-product">
+		<view class="new-product-top">
+			<view class="left">
+				<image class="new-product-image" src="/images/testImages/p40.png" mode="scaleToFill"></image>
+			</view>
+			<view class="right">
+				<view class="top">
+					<image class="new-product-right-top-image" src="/images/testImages/honor 30.jpg" mode="scaleToFill"></image>
+				</view>
+				<view class="bottom">
+					<image class="new-product-right-bottom-image" src="/images/testImages/honor 30pro.jpg" mode="scaleToFill"></image>
+				</view>
+			</view>
+		</view>
+		<view class="new-product-bottom">
+			<view class="left">
+				<image class="new-product-bottom-image" src="/images/testImages/nova7.jpg" mode="scaleToFill"></image>
+			</view>
+			<view class="right">
+				<image class="new-product-bottom-image" src="/images/testImages/honor x10.jpg" mode="scaleToFill"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 分割线 -->
+	<view class="dividing-line-new-product" style="margin-top: 5rpx">
+		精品展区
+	</view>
+	<!-- 精品推荐 -->
+	<view class="boutique-product">
+		<scroll-view 
+			class="boutique-product-scroll"
+			enable-flex="true"
+			scroll-x="true">
+			<view wx:for="{{ boutiqueu }}" wx:key="id" class="boutique-product-scroll-item">
+				<view class="boutique-product-scroll-image-box">
+					<image class="boutique-product-scroll-item-image" src="{{ item.image }}" mode="scaleToFill"></image>
+				</view>
+				<view class="boutique-product-scroll-item-title">{{ item.title }}</view>
+				<view class="boutique-product-scroll-item-price">¥{{ item.price }}</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 分割线 -->
+	<view class="dividing-line-new-product" style="margin-top: 5rpx">
+		分类展区
+	</view>
+	<!-- 商品分类展示区域 -->
+	<view class="category">
+		<scroll-view 
+			class="category-tabs" 
+			scroll-x="true"
+			enable-flex="true"
+			>
+			<view>{{ categories[0].category}}</view>
+		</scroll-view>
+		<scroll-view 
+			class="category-products"
+			scroll-y="true"
+			enable-flex="true"
+			>
+			<view wx:for="{{ categories[0].products }}" class="test">
+				<block>
+					<image class="test-image" src="{{ item.image }}" mode="scaleToFill"></image>
+					<view class="category-products-title">测试</view>
+				</block>
+			</view>
+		</scroll-view>
+	</view>
+</view>

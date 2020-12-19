@@ -1,0 +1,36 @@
+page {
+  margin: 0;
+  padding: 0;
+}
+
+.total{
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  width: 100%rpx;
+  height: 50rpx;
+  float: left;
+}
+
+.item_star {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 5rpx;
+}
+
+.star {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.star_content{
+  height: 40rpx;
+  width: 100rpx;
+  line-height: 40rpx;
+  color: gray;
+  font-size: 26rpx;
+  margin-left: 5rpx;
+  font-weight: 500;
+}

@@ -1,0 +1,91 @@
+/* pages/components/templates/orderTemplate/orderTemplate.wxss */
+.template{
+	border-radius: 10rpx;
+	border: 2px solid #828282;
+	padding: 10rpx;
+}
+
+.order-list{
+	width: 98%;
+	margin: 30rpx auto;
+	border: 1px solid #F5F5F5;
+	border-radius: 13rpx;
+	/*box-shadow: 0 0 3px #CFCFCF;*/
+}
+
+.template-top {
+	border-bottom: 1px solid rgba(207, 207, 207, 0.5);
+	padding-top: 15rpx;
+	padding-bottom: 15rpx;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	display: flex;
+	justify-content: space-between;
+	color: #828282;
+}
+
+.template-top .left text{
+	position: relative;
+	margin-top: 10rpx;
+}
+
+.template-middle{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	border-bottom: 1px solid rgba(207, 207, 207, 0.5);
+	padding: 15rpx;
+	position: relative;
+}
+
+.products-item{
+	display: flex;
+	flex-direction: row;
+	margin-top: 10rpx;
+}
+
+.img{
+	width: 130rpx;
+	height: 130rpx;
+}
+
+.template-middle text{
+	color: black;
+	margin-top: 50rpx;
+	margin-left: 20rpx;
+
+}
+
+.template-bottom{
+	margin-top: 10rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 100%;
+}
+
+.template-bottom .total{
+	color: #828282;
+	margin-right: 20rpx;
+	margin-top: 10rpx;
+}
+
+.template-button{
+	background: #f87016;
+	border-radius: 27rpx;
+	width: 130rpx;
+	height: 50rpx;
+	color: white;
+	line-height: 50rpx;
+	margin-right: 30rpx;
+	margin-top: 10rpx;
+	margin-bottom: 15rpx;
+	font-size: 24rpx;
+}
+
+.button-group{
+	display: flex;
+	flex-direction: row;
+}

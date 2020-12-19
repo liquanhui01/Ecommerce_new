@@ -1,0 +1,106 @@
+page {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-left {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 28rpx;
+}
+
+.nav-right {
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  border-left: 1px solid rgba(232, 232, 232, 0.4);
+  background-color: rgba(245, 245, 245, 0.5);
+  z-index: -2;
+}
+
+.nav-left-item {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.active {
+  color: #FF5000;
+}
+
+.sub_item {
+  width: 96%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border: 1px solid rgba(255, 255, 255);
+  border-radius: 10rpx;
+  z-index: -1;
+}
+
+.products{
+  position: relative;
+}
+
+.products .title {
+  font-size: 25rpx;
+  color: #C0C0C0;
+  margin-left: 235rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.products .title::before {
+  content: "";
+  width: 100rpx;
+  height: 1rpx;
+  background-color: #C0C0C0;
+  position: absolute;
+  left: 125rpx;
+  top: 20rpx;
+}
+
+.products .title::after {
+  content: "";
+  width: 100rpx;
+  height: 1rpx;
+  background-color: #C0C0C0;
+  position: absolute;
+  right: 125rpx;
+  top: 20rpx;
+}
+
+.second {
+  width: 31%;
+  height: 32%;
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+}
+
+.second-image {
+  width: 100%;
+  height: 170rpx;
+}
+
+.second-name {
+  font-size: 20rpx;
+  color: black;
+  text-align: center;
+  margin-top: -10rpx;
+  margin-bottom: 10rpx;
+}

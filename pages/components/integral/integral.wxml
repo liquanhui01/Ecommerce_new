@@ -1,0 +1,121 @@
+<!--pages/components/integral/integral.wxml-->
+<view class="total">
+	<scroll-view 
+		class="tabs {{ status == false ? 'isShow' : '' }}" 
+		scroll-x="true" 
+		enhanced="true"
+		scroll-with-animation="true"
+		lower-threshold="100rpx"
+		paging-enabled="true"
+		hidden="{{ status }}">
+		<view class="{{ productsStatus == 'products' ? 'active' : '' }}">商品</view>
+		<view class="{{ productsStatus == 'money' ? 'active' : '' }}">优惠券</view>
+		<view class="{{ productsStatus == 'recharge' ? 'active' : '' }}">积分充值</view>
+	</scroll-view>
+	<view class="top">
+		<view class="top-container">
+			<text>我的积分</text>
+			<text>{{ integralCount }}</text>
+		</view>
+		<image class="description" src="/images/tabs/description.png" mode="scaleToFill"></image>
+	</view>
+	<view class="content">
+		<view>
+			<text class="first">早起签到</text>
+			<image class="sun" src="/images/tabs/sun.png" mode="scaleToFill"></image>
+		</view>
+		<view>
+			<text class="first">会员领积分</text>
+			<image class="member-integral" src="/images/tabs/member-integral.png" mode="scaleToFill"></image>
+		</view>
+	</view>
+	<view>
+		<scroll-view 
+			class="container-tab" 
+			scroll-x="true" 
+			enhanced="true"
+			scroll-with-animation="true"
+			lower-threshold="100rpx"
+			paging-enabled="true"
+			bindtap="onPageScroll"
+			hidden="{{ scrollStatus }}">
+			<view class="{{ productsStatus == 'products' ? 'active' : '' }}">商品</view>
+			<view class="{{ productsStatus == 'money' ? 'active' : '' }}">优惠券</view>
+			<view class="{{ productsStatus == 'recharge' ? 'active' : '' }}">积分充值</view>
+		</scroll-view>
+	</view>
+	<!-- 商品部分 -->
+	<view class="products-title" bindtap="productsOnPageScroll">商品</view>
+	<view class="products">
+		<view class="item" wx:for="{{ products }}" wx:key="image">
+			<view class="img">
+				<image src="{{ item.image }}" mode="scaleToFill"></image>
+			</view>
+			<view class="title">
+				<text>{{ item.title }}</text>	
+			</view>
+			<view class="newPrice">
+				<image src="/images/tabs/integral.png" mode="scaleToFill"></image>
+				<text>{{ item.newPrice }}</text>
+				<view>限量抢兑中</view>
+			</view>
+			<view class="originPrice">
+				<text>{{ item.originPrice }}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 优惠券部分 -->
+	<view class="second">优惠券</view>
+	<view class="money">
+		<view class="box">
+			<template class="item" is="coupons" data="{{ ...coupons.five }}" />
+			<template class="item" is="coupons" data="{{ ...coupons.ten }}" />
+			<template class="item" is="coupons" data="{{ ...coupons.twenty }}" />
+			<template class="item" is="coupons" data="{{ ...coupons.fifty }}" />
+		</view>	
+	</view>
+	<!-- 积分充值 -->
+	<view class="third">积分充值</view>
+	<view class="recharge">
+		<template is="recharge" data="{{ ...recharge.five }}" />
+		<template is="recharge" data="{{ ...recharge.ten }}" />
+		<template is="recharge" data="{{ ...recharge.twenty }}" />
+	</view>
+</view>
+
+<!-- 优惠券模版 -->
+<template name="coupons">
+	<view class="coupons">
+		<view class="coupons-left">
+			<text>¥{{ amount }}</text>
+			<text>{{ title }}</text>
+		</view>
+		<view class="coupons-right" bindtap="bindCoucops" data-price="{{ price }}">
+			<image src="/images/tabs/integral.png" mode="scaleToFill"></image>
+			<text>{{ price }}</text>
+		</view>
+		<view class="bought" hidden="{{ boughtStatus }}">
+			<view class="first">
+				已兑换
+			</view>
+		</view>
+	</view>
+</template>
+
+<!-- 积分充值模版 -->
+<template name="recharge">
+	<view class="recharge-box"  bindtap="bindRechargeTap" data-price="{{ price }}">
+		<view class="recharge-left">
+			<text>{{ title }}</text>
+		</view>
+		<view class="recharge-right">
+			<image class="" src="/images/tabs/money.png" mode="scaleToFill"></image>
+			<text>{{ price }}</text>
+		</view>
+		<view class="bought" hidden="{{ rechargeStatus }}">
+			<view class="first">
+				已购买
+			</view>
+		</view>
+	</view>
+</template>

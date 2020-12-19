@@ -1,0 +1,111 @@
+<!--pages/my/my.wxml-->
+<view>
+	<!-- 用户个人信息 -->
+	<view wx:if="{{userInfo_show == true}}" class="information">
+		<image class="avatar" src="{{access_token.avatar == '' ? '/images/tabs/default_avatar.png' : access_token.avatar}}" />
+		<view class="userInfoContent">
+			<view class="nickName">{{ access_token.username }}</view>
+		</view>
+		<image class="setting" bindtap="navigateToUserInfoPage" src="/images/tabs/setting.png" />
+	</view>
+	<!-- 当未授权的时候 -->
+	<view wx:else class="information">
+		<image
+		 class="avatar"
+		 src="{{ avatar }}"
+		 mode="aspectFit|aspectFill|widthFix"
+		 lazy-load="false"
+		>
+		</image>
+		<button
+		class="wechatLogin"
+		wx:if="{{canIUse}}"
+		bind:tap="navigateToLoginPage"
+		style="width:23vw;height:15vw"
+		>微信登录
+		</button>
+		<button wx:if="{{canIUse}}" style="width:23vw; height:15vw" class="phoneLogin" bind:tap="numberLogin">手机登陆</button>
+	</view>
+	<!-- 顶部内容框 -->
+	<view class="container-top">
+		<view class="content">
+			<text>优惠权益</text>
+			<image src="/images/tabs/discount.png" mode="scaleToFill"></image>
+		</view>
+		<view class="content" bindtap="addressPage">
+			<text>收货地址</text>
+			<image src="/images/tabs/address.png" mode="scaleToFill"></image>
+		</view>
+		<view class="content" bindtap="integralPage">
+			积分中心
+			<image src="/images/tabs/integral.png" mode="scaleToFill"></image>
+		</view>
+	</view>
+	<!-- 订单及购物区域 -->
+	<view class="container-middle">
+		<text>订单信息</text>
+		<view class="content">
+			<view>
+				<image
+				 bind:tap="willPay"
+				 src="/images/tabs/will-pay.png"
+				 mode="scaleToFill"
+				></image>
+				<text>待付款</text>
+			</view>
+			<view>
+				<image
+				 bind:tap="shipped"
+				 src="/images/tabs/shipped.png"
+				 mode="scaleToFill"
+				></image>
+				<text>待收货</text>
+			</view>
+			<view bind:tap="received">
+				<image src="/images/tabs/received.png" mode="scaleToFill"></image>
+				<text>已收货</text>
+			</view>
+			<view bind:tap="orderList">
+				<image src="/images/tabs/order.png" mode="scaleToFill"></image>
+				<text>全部订单</text>
+			</view>
+		</view>
+	</view>
+	<!-- 常用功能 -->
+	<view class="after-sale">
+		<text>常用功能</text>
+		<view class="content">
+			<view>
+				<image src="/images/tabs/favorite-box.png" mode="scaleToFill"></image>
+				<text>收藏夹</text>
+			</view>
+			<view>
+				<image src="/images/tabs/history.png" mode="scaleToFill"></image>
+				<text>历史足迹</text>
+			</view>
+			<view>
+				<image src="/images/tabs/return-product.png" mode="scaleToFill"></image>
+				<text>退换货</text>
+			</view>
+			<view>
+				<image src="/images/tabs/contact.png" mode="scaleToFill"></image>
+				<text>联系客服</text>
+			</view>
+		</view>
+	</view>
+	<!-- 平台介绍 -->
+	<view class="container-bottom">
+		<text>平台介绍</text>
+		<view class="content">
+			<image src="/images/tabs/mall.png" mode="scaleToFill"></image>
+			<text>关于商城</text>
+		</view>
+	</view>
+	<l-dialog 
+  show="{{dialog_show}}"
+  type="confirm"     
+  title="提示"
+	content="确认登陆手机账户？" 
+	bind:linconfirm="navigateToPhoneLogin"/>
+</view>
+

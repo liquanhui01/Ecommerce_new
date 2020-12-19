@@ -1,0 +1,69 @@
+/* pages/components/aboutTheMall/aboutTheMall.wxss */
+page{
+	padding: 0;
+	margin: 0;
+	background-color: rgb(232, 232, 232, 0.5);
+}
+
+.top{
+	width: 100%;
+	height: 200rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15rpx;
+}
+
+.img{
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.name{
+	margin-top: 10rpx;
+}
+
+.version{
+	margin-top: 10rpx;
+	font-size: 25rpx;
+	color: #9C9C9C;
+}
+
+.bottom{
+	background-color: white;
+	margin-top: 15rpx;
+	width: 100%;
+	height: 140rpx;
+}
+
+.certificate, .protocol{
+	width: 100%;
+	height: 70rpx;
+	line-height: 70rpx;
+	border-bottom: 1px solid #E8E8E8;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.certificate text{
+	margin-left: 30rpx;
+}
+
+.certificate image{
+	width: 40rpx;
+	height: 40rpx;
+}
+
+.protocol text{
+	margin-left: 30rpx;
+}
+
+.protocol image{
+	width: 40rpx;
+	height: 40rpx;
+}

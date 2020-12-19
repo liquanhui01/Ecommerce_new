@@ -1,0 +1,32 @@
+
+<view>
+  <view wx:if="{{ select_avatar == false }}" class="avatar" bind:tap="chooseImage">
+    <image src="{{ access_token.avatar ? access_token.avatar : '/images/tabs/default_avatar.png' }}" class="avatar_content" />
+    <image src="/images/tabs/picture.png" class="picture" />
+  </view>
+  <view wx:else class="avatar" bind:tap="chooseImage">
+    <image src="{{ userInfo.phone_avatar }}" class="avatar_content" />
+    <image src="/images/tabs/picture.png" class="picture" />
+  </view>
+  <view class="form">
+    <view class="content">
+      <view class="left">用户名</view>
+      <input class="right" bindinput="getUsername" value="{{ access_token.username }}"></input>
+    </view>
+    <view class="err_msg" hidden="{{ err_msg_show }}">{{ err_msg.username }}</view>
+    <view class="content">
+      <view class="left">登陆密码</view>
+      <input class="right" bindinput="getPassword" placeholder="************"/>
+    </view>
+    <view class="err_msg" hidden="{{ err_msg_show }}">{{ err_msg.password }}</view>
+    <view class="content">
+      <view class="left">注册时间</view>
+      <view class="right">{{ access_token.created_at }}</view>
+    </view>
+    <view class="content">
+      <view class="left">用户类型</view>
+      <view class="right" >{{ access_token.user_type == 1 ? '微信用户' : '手机用户' }}</view>
+    </view>
+  </view>
+  <l-button l-class="button" plain="{{true}}" bind:tap="updateUser">更新</l-button>
+</view>

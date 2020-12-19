@@ -1,0 +1,284 @@
+page{
+	margin: 0;
+	padding: 0;
+	background-color: rgb(232, 232, 232, 0.1);
+}
+
+/* 
+ * 搜索框区域
+ */
+.find-product{
+	width: 170rpx;
+	height: 50rpx;
+	position: fixed;
+	top: 30rpx;
+	right: 0;
+	z-index: 1;
+	border-bottom-left-radius: 30rpx;
+	border-top-left-radius: 30rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #DCDCDC;
+}
+
+.find-product text{
+	font-size: 29rpx;
+	color: white;
+	margin-left: 13rpx;
+}
+
+.find-product-icon{
+	width: 40rpx;
+	height: 40rpx;
+}
+
+/*
+ * 轮播图区域
+ */
+.swiper-total{
+	width: 100%;
+	height: 290rpx;
+}
+
+.swiper{
+	width: 100%;
+	height: 290rpx;
+}
+
+.swiper-image{
+	width: 96%;
+	height: 100%;
+	margin-left: 2%;
+	border-radius: 10rpx;
+}
+
+.swiper-description{
+	width: 100%;
+	height: 70rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+	background-color: white;
+}
+
+.swiper-description view{
+	flex: 1;
+	width: 33.3%;
+	height: 100%;
+	margin-left: 55rpx;
+}
+
+.swiper-description-image{
+	margin-top: 23rpx;
+	width: 35rpx;
+	height: 35rpx;
+}
+
+.swiper-description view text{
+	font-size: 20rpx;
+	color: #cdcdcd;
+	position: absolute;
+	bottom: 18rpx;
+}
+
+/*
+ * 新品展区分割线
+ */
+.dividing-line-new-product{
+	width: 100%;
+	height: 40rpx;
+	text-align: center;
+	color: #9C9C9C;
+	font-size: 25rpx;
+	position: relative;
+	margin-top: 70rpx;
+}
+
+.dividing-line-new-product::before{
+	content: "";
+	width: 100rpx;
+	height: 1rpx;
+	position: absolute;
+	left: 28%;
+	top: 18rpx;
+	background: #9C9C9C;
+}
+
+.dividing-line-new-product::after{
+	content: "";
+	width: 100rpx;
+	height: 1rpx;
+	position: absolute;
+	right: 28%;
+	top: 18rpx;
+	background: #9C9C9C;
+}
+
+/*
+ * 新品展区区域
+ */
+.new-product{
+	width: 100%;
+	height: 850rpx;
+	background-color: white;
+}
+
+.new-product-top{
+	width: 100%;
+	height: 500rpx;
+	display: flex;
+	flex-direction: row;
+}
+
+.new-product .left{
+	width: 50%;
+	height: 100%;
+}
+
+.new-product-image{
+	width: 100%;
+	height: 100%;
+}
+
+.new-product .right{
+	width: 50%;
+	height: 100%;
+}
+
+.new-product .right .top{
+	width: 100%;
+	height: 50%;
+}
+
+.new-product .right .bottom{
+	width: 100%;
+	height: 50%;
+}
+
+.new-product-right-top-image{
+	width: 100%;
+	height: 100%;
+}
+
+.new-product-right-bottom-image{
+	width: 100%;
+	height: 100%;
+}
+
+.new-product-bottom{
+	width: 100%;
+	height: 300rpx;
+	display: flex;
+	flex-direction: row;
+}
+
+.new-product-bottom .left{
+	width: 50%;
+	height: 100%;
+}
+
+.new-product-bottom .right{
+	width: 50%;
+	height: 100%;
+}
+
+.new-product-bottom-image{
+	width: 100%;
+	height: 100%;
+}
+
+/*
+ * 精品推荐
+ */
+.boutique-product{
+	width: 100%;
+	height: 370rpx;
+	background-color: white;
+	position: relative;
+}
+
+.boutique-product-scroll{
+	width: 100%;
+	height: 350rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: absolute;
+	top: 15rpx;
+}
+
+.boutique-product-scroll-item{
+	flex: 1;
+	margin-left: 30rpx;
+}
+
+.boutique-product-scroll-image-box{
+	width: 250rpx;
+	height: 250rpx;
+	background-color: rgb(232, 232, 232, 0.3);
+	border-radius: 18rpx;
+}
+
+.boutique-product-scroll-item-image{
+	width: 180rpx;
+	height: 180rpx;
+	margin-top: 35rpx;
+	margin-left: 35rpx;
+}
+
+.boutique-product-scroll-item-title{
+	color: 26rpx;
+}
+
+.boutique-product-scroll-item-price{
+	color: red;
+}
+
+/*
+ * 商品分类展区
+ */
+.category{
+	width: 100%;
+	height: 1000rpx;
+	background-color: white;
+}
+
+.category-products{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: rgb(232, 232, 232, 0.3);
+}
+
+.test{
+	width: 44%;
+	height: 400rpx;
+	margin-top: 20rpx;
+	margin-left: 3%;
+	margin-right: 3%;
+	border-top-left-radius: 15rpx;
+	border-top-right-radius: 15rpx;
+}
+
+.test block{
+	background-color: red;
+}
+
+.test-image{
+	width: 100%;
+	height: 80%;
+	border-top-left-radius: 15rpx;
+	border-top-right-radius: 15rpx;
+}
+
+.category-products-title{
+	width: 100%;
+	height: 40rpx;
+	color: 25rpx;
+}

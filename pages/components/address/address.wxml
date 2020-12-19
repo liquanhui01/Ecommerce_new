@@ -1,0 +1,58 @@
+<!--pages/components/address/address.wxml-->
+<view>
+	<view
+	 class="address"
+	 wx:for="{{ address }}"
+	 wx:key="*this"
+	>
+		<view class="content">
+			<radio
+			 class="radio"
+			 checked="{{ checked_index === index ? 'true': '' }}"
+			 bind:tap="changeRadio"
+			 data-index="{{ index }}"
+			></radio>
+			<view class="main-content">
+				<view class="username-telphone">
+					<text class="number">{{ item.telPhone }}</text>
+					<text>  {{ item.userName }} 收</text>
+					<text class="tag {{ item.type == 'applet' ? 'applet' : 'wechat'}}">{{ item.type == 'applet' ? '小程序' : '微信' }}</text>
+				</view>
+				<view class="address-total">{{ item.privinceName }} {{ item.cityName }} {{item.districtName}} </view>
+				<view class="address-detail">{{ item.detailInfo }}</view>
+				<view class="address-code">{{item.postalCode}}</view>
+			</view>
+			<image
+			 bindtap="navigateToDetailPage"
+			 data-index="{{ index }}"
+			 src="/images/tabs/edit.png"
+			 mode="scaleToFill"
+			></image>
+			<image
+			 src="/images/tabs/delete.png"
+			 mode="scaleToFill"
+			 bind:tap="deleteAddress"
+			 data-id="{{ item.id }}"
+			></image>
+		</view>
+	</view>
+	<view class="bottom">
+		<view class="bottom-button" bindtap="getAddressInfoFromWechat">
+			<image
+			 class=""
+			 src="/images/tabs/wechat.png"
+			 mode="scaleToFill"
+			></image>
+			<text>使用微信地址</text>
+		</view>
+		<view class="bottom-button" bindtap="navigateToAddressFormPage">
+			<image
+			 class=""
+			 src="/images/tabs/add-address.png"
+			 mode="scaleToFill"
+			></image>
+			<text>新增地址</text>
+		</view>
+	</view>
+</view>
+

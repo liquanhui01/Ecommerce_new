@@ -1,0 +1,254 @@
+/* pages/my/my.wxss */
+page {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(232, 232, 232, 0.5);
+}
+
+.information {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 270rpx;
+  background-color: #5885CF;
+  border-bottom-left-radius: 500rpx 30rpx;
+  border-bottom-right-radius: 500rpx 30rpx;
+}
+
+.avatar {
+  position: absolute;
+  left: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  top: 40rpx;
+  z-index: 1000;
+}
+
+.userInfoContent {
+  position: absolute;
+  left: 140rpx;
+  width: 400rpx;
+  height: 130rpx;
+  top: 40rpx;
+}
+
+.nickName {
+  font-size: 15px;
+  margin-top: 30rpx;
+  color: white;
+}
+
+.setting{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 65rpx;
+  right: 5rpx;
+  z-index: 1000;
+}
+
+.tag {
+  border-radius: 10rpx;
+  text-align: center;
+  border: 1px solid white;
+  margin-left: 5rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 20rpx;
+}
+
+.conversion-total{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.conversion{
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.numberLogin{
+  color: white;
+  font-size: 25rpx;
+}
+
+.wechatLogin {
+  position: absolute;
+  left: 110rpx;
+  top: 35rpx;
+  background-color: #5885CF;
+  color: #e8e8e8;
+  font-size: 25rpx;
+}
+
+.wechatLogin::after {
+  border: none;
+  background: transparent;
+}
+
+.phoneLogin{
+  position: absolute;
+  left: 110rpx;
+  top: 80rpx;
+  background-color: #5885CF;
+  color: #e8e8e8;
+  font-size: 25rpx;
+}
+
+.phoneLogin::after {
+  border: none;
+  background: transparent;
+}
+
+.container-top {
+  background-color: #fff;
+  width: 94%;
+  height: 100rpx;
+  position: relative;
+  margin-top: -90rpx;
+  margin-left: 25rpx;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: row;
+  /* background-color: #5885CF; */
+}
+
+.container-top .content {
+  flex: 1;
+  width: 110rpx;
+  height: 90rpx;
+  margin-top: 5rpx;
+  margin-left: 20rpx;
+  line-height: 90rpx;
+  font-size: 27rpx;
+}
+
+.container-top .content:nth-child(1) {
+  border-right: 1px dashed #cfcfcf;
+}
+
+.container-top .content:nth-child(2) {
+  border-right: 1px dashed #cfcfcf;
+}
+
+.container-top .content image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+  margin-top: 15rpx;
+}
+
+.container-middle {
+  position: relative;
+  margin-top: 30rpx;
+}
+
+.container-middle text {
+  margin-left: 20rpx;
+}
+
+.container-middle .content {
+  border: 1px solid #F5F5F5;
+  width: 98%;
+  height: 120rpx;
+  background-color: white;
+  margin-left: 7rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.container-middle .content view {
+  flex: 1;
+}
+
+.container-middle .content view image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 12rpx;
+}
+
+.container-middle .content view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-middle .content view text {
+  font-size: 25rpx;
+}
+
+.after-sale {
+  position: relative;
+  margin-top: 30rpx;
+}
+
+.after-sale text {
+  margin-left: 20rpx;
+}
+
+.after-sale .content {
+  width: 98%;
+  height: 120rpx;
+  margin-left: 7rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  border: 1px solid #F5F5F5;
+  display: flex;
+  flex-direction: row;
+}
+
+.after-sale .content view {
+  flex: 1;
+}
+
+.after-sale .content view {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+}
+
+.after-sale .content view image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 10rpx;
+}
+
+.container-bottom {
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.container-bottom text {
+  margin-left: 20rpx;
+}
+
+.container-bottom .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 98%;
+  height: 120rpx;
+  margin-left: 7rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  border: 1px solid #F5F5F5;
+}
+
+.container-bottom .content text {
+  margin-left: 60rpx;
+  font-size: 25rpx;
+}
+
+.container-bottom .content image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 77rpx;
+}

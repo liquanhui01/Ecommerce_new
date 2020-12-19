@@ -1,0 +1,204 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.1",
+  "appid": "wxbcb47fe1fe9624bc",
+  "projectname": "Ecommerce-new",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "category",
+          "pathName": "pages/category/category",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人主页",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单列表",
+          "pathName": "pages/components/orderList/orderList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "address",
+          "pathName": "pages/components/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "新增收货地址",
+          "pathName": "pages/components/templates/addressForm/addressForm",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "积分中心",
+          "pathName": "pages/components/integral/integral",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "关于商城",
+          "pathName": "pages/components/aboutTheMall/aboutTheMall",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/components/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索页面",
+          "pathName": "pages/components/find/find",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "单个分类对应的商品",
+          "pathName": "pages/components/sameCategoryProductsDetail/sameCategoryProductsDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "手机验证码登陆",
+          "pathName": "pages/components/phoneLogin/phoneLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "注册页面",
+          "pathName": "pages/components/signup/signup",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "单一分类商品页面",
+          "pathName": "pages/components/sameCategoryProductsDetail/sameCategoryProductsDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品评论页面",
+          "pathName": "pages/components/evaluations/evaluations",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品评价列表",
+          "pathName": "pages/components/evaluations_list/evaluations_list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "密码登陆",
+          "pathName": "pages/components/phonePasswordLogin/phonePasswordLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "微信登陆页面",
+          "pathName": "pages/components/wechatLogin/wechatLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "用户信息",
+          "pathName": "pages/components/userInfoDettail/userInfoDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "更新用户信息",
+          "pathName": "pages/components/updateUserInfo/updateUserInfo",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

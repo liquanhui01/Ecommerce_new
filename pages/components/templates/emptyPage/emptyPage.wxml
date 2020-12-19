@@ -1,0 +1,4 @@
+<!--pages/components/templates/emptyPage/emptyPage.wxml-->
+<template name="emptyPage">
+	<image class="img" src="/images/tabs/empty.png" mode="scaleToFill"></image>
+</template>
