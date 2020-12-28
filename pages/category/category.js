@@ -1,5 +1,7 @@
 // pages/category/category.js
-var utils = require('../../utils/util.js');
+var utils = require('../../utils/util.js')
+import request from '../../utils/request.js'
+import api from '../api/api.js'
 Page({
 
   /**
@@ -18,22 +20,14 @@ Page({
     var now = Date.parse(new Date());
     var result = utils.commonGetStorage('category', now);
     if (result === "") {
-      wx.request({
-        url: 'http://localhost:8000/products/category/', //仅为示例，并非真实的接口地址
-        data: {},
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: res => {
-          this.setData({
-            categories: res.data
-          });
-          utils.commonSetStorage('category', res.data, 3*24*3600*1000); // 分类数据缓存三天
-        },
-        fail: err => {
-          console.log(err);
-        }
-      }); 
+      request._get(api.categoriesList, {}, "").then(res => {
+        console.log(res)
+        this.setData({
+          categories: res.data.results
+        })
+      }).catch(error => {
+        console.log(error)
+      })
     } else {
       this.setData({
         categories: result
@@ -56,14 +50,7 @@ Page({
    */
   navigateToCategoryDetail: function (e) {
     var id = e.currentTarget.dataset.message.id;
-    var name = e.currentTarget.dataset.message.name;
-    var url = "/pages/components/sameCategoryProductsDetail/sameCategoryProductsDetail?id="+ id + "&name=" + name;
+    var url = "/pages/components/productDetail/productDetail?id="+ id;
     utils.navigateCommonMethod(url);
   },
-  /* 
-   * 测试
-   */
-  test: function (e) {
-    console.log(e);
-  }
 })

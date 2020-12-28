@@ -84,6 +84,13 @@
     "van-count-down": "@vant/weapp/count-down/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-stepper": "@vant/weapp/stepper/index",
     "l-countdown": "lin-ui/countdown/index",
     "l-toast": "lin-ui/toast/index",
     "l-tabs": "lin-ui/tabs/index",
@@ -92,6 +99,7 @@
     "l-dialog": "lin-ui/dialog/index",
     "l-button": "lin-ui/button/index",
     "l-radio": "lin-ui/radio/index",
-    "l-input": "lin-ui/input/index"
+    "l-input": "lin-ui/input/index",
+    "l-collapse": "lin-ui/collapse/index"
   }
 }

@@ -1,4 +1,6 @@
 var utils = require("../../../utils/util.js");
+import request from '../../../utils/request.js'
+import api from '../../api/api.js'
 Page({
 
   /**
@@ -89,6 +91,9 @@ Page({
     favirate: false,
     buy_count: 1,
     address: '请选择收货地址',
+    small_show: false,
+    currentIndex: 0,
+    like_status: false
   },
 
   /* 
@@ -114,43 +119,18 @@ Page({
    * 页面加载
    */
   onLoad: function (options) {
-    var id = options.id;
-    var key = 'id' + id;
-    var now = Date.parse(new Date());
-    var result = utils.commonGetStorage(key, now);
-    var address = options.address;
-    if (!address) {
-      console.log("地址不能为空");
-    }
-    if (!result) {
-      wx.request({
-        url: 'http://localhost:8000/products/detail/' + id,
-        method: 'GET',
-        data: {},
-        header: {
-          'content-type': 'application/json'
-        },
-        success: (res) => {
-          this.setData({
-            products: res.data,
-            id: id,
-            address: address
-          });
-          this.imagesByCategory(res.data.product_images);
-          utils.commonSetStorage(key, res.data, 1 * 6 * 3600 * 1000);
-        },
-        fail: (err) => {
-          console.log(err)
-        }
-      }); 
-    } else {
+    var id = options.id,
+      key = 'id' + id,
+      address = options.address,
+      url = api.productDetail + id + "/"
+    request._get(url, {}, "").then(res => {
       this.setData({
-        products: result,
+        products: res.data,
         id: id,
-        address: address
-      });
-      this.imagesByCategory(result.product_images);
-    }
+        swiper: res.data.product_images,
+        swiperLength: res.data.product_images.length
+      })
+    }).catch(error => {})
   },
   /*
    * swiper滑动时触发事件
@@ -160,6 +140,15 @@ Page({
     this.setData({
       page: page
     });
+  },
+  /* 
+   * 点击小的图片轮播图显示对应的图片
+   */
+  chooseSwiperImage: function(e){
+    var index = e.currentTarget.dataset.index
+    this.setData({
+      currentIndex: index
+    })
   },
   /*
    * scrollPage滚动的高度
@@ -197,9 +186,9 @@ Page({
     });
   },
   /*
-   * 关闭独步商品选择弹窗
+   * 关闭商品选择弹窗
    */
-  closePopupBox: function (){
+  onClose: function (){
     this.setData({
       popupShow: !this.data.popupShow,
     });
@@ -256,6 +245,14 @@ Page({
   navigateToCartPage: function(){
     wx.switchTab({
       url: '/pages/order/order'
+    })
+  },
+  /* 
+   * 点击选择是否喜欢商品(收藏) 
+   */
+  changeLikeStatus: function(e){
+    this.setData({
+      like_status: !this.data.like_status
     })
   }
 })

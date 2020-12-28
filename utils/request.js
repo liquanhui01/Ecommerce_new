@@ -4,7 +4,7 @@ const app = getApp()
 const baseUrl = "http://localhost:8000/"
 
 // 创建对象
-const http = ({url, method, data, token, url_type=1} = {}) => {
+const http = ({url, method, data, token, content_type="application/json", url_type=1} = {}) => {
   return new Promise((resolve, reject) => {
     console.log(url_type)
     wx.request({
@@ -12,7 +12,7 @@ const http = ({url, method, data, token, url_type=1} = {}) => {
       method: method || "GET",
       data: data || {},
       header: {
-        "content_type": "application/json",
+        "content_type": content_type,
         Authorizaton: token || ""
       },
       success: res => {
@@ -27,46 +27,50 @@ const http = ({url, method, data, token, url_type=1} = {}) => {
 }
 
 // get请求
-const _get = (url, data, token, url_type) => {
+const _get = (url, data, token, content_type, url_type) => {
   return http({
     url: url,
     data:data,
     method:"GET",
     token: token,
-    url_type: url_type
+    url_type: url_type,
+    content_type: content_type
   })
 }
 
 // post请求
-const _post = (url, data, token, url_type) => {
+const _post = (url, data, token, content_type, url_type) => {
   return http({
     url: url,
     data:data,
     method:"POST",
     token: token,
-    url_type: url_type
+    url_type: url_type,
+    content_type: content_type
   })
 }
 
 // put请求
-const _put = (url, data, token, url_type) => {
+const _put = (url, data, token, content_type, url_type) => {
   return http({
     url: url,
     data: data,
     method: "PUT",
     token: token,
-    url_type: url_type
+    url_type: url_type,
+    content_type: content_type
   })
 }
 
 // delete请求
-const _delete = (url, data, token, url_type) => {
+const _delete = (url, data, token, content_type, url_type) => {
   return http({
     url: url,
     data: data,
     method: "DELETE",
     token: token,
-    url_type: url_type
+    url_type: url_type,
+    content_type: content_type
   })
 }
 

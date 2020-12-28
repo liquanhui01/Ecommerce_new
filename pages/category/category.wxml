@@ -21,9 +21,9 @@
 			 class="products"
 			>
 				<view class="title">{{ first.name }}</view>
-				<view class="sub_item" wx:if="{{ first.sub_cat.length > 0 }}">
+				<view class="sub_item" wx:if="{{ first.pro_cat.length > 0 }}">
 					<view
-					 wx:for="{{ first.sub_cat }}"
+					 wx:for="{{ first.pro_cat }}"
 					 wx:key="id"
 					 wx:for-item="second"
 					 class="second"
@@ -32,7 +32,7 @@
 					>
 						<!-- 内层循环图片点击事件 -->
 						<image
-						 src="{{ second.image }}"
+						 src="{{ second.products_front_image }}"
 						 mode="aspectFit|aspectFill|widthFix"
 						 lazy-load="true"
 						 class="second-image"

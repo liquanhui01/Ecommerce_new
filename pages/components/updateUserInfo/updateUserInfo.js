@@ -36,7 +36,7 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         that.setData({
-          'userInfo.phone_avatar': tempFilePaths,
+          'userInfo.phone_avatar': tempFilePaths[0],
           select_avatar: true
         })
       }
@@ -86,10 +86,27 @@ Page({
         })
       }
     }
-    request._put(updatePhoneUser + id + "/", this.data.userInfo, "").then(res => {
-      console.log(res)
-    }).catch(error => {
-      console.log(error)
+    console.log(this.data.userInfo.phone_avatar)
+    // request._put(updatePhoneUser + id + "/", this.data.userInfo.phone_avater, "", "multipart/form-data").then(res => {
+    //   console.log(res)
+    // }).catch(error => {
+    //   console.log(error)
+    // })
+    wx.request({
+      url: 'http://127.0.0.1:8000/users/update/' + id + "/",
+      data: {
+        phone_avatar: this.data.userInfo.phone_avatar
+      },
+      method: 'PUT',
+      header: {
+        "content_type": "multipart/form-data"
+      },
+      success: red => {
+        console.log(res)
+      },
+      fial: err => {
+        console.log(err)
+      } 
     })
   }
 })

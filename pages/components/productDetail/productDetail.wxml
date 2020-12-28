@@ -10,35 +10,67 @@
 	 autoplay="true"
 	 interval="3000"
 	 circular="true"
+	 current="{{ currentIndex }}"
 	 easing-function="linear"
 	 indicator-dots="true"
 	 bindchange="swiperChange"
 	 class="swiper"
 	>
 		<block wx:for="{{ swiper }}" wx:key="index">
-			<swiper-item>
-				<image
+			<swiper-item wx:if="{{ small_show == false }}">
+				<image 
 				 class="swiper-image"
-				 src="{{ item }}"
+				 src="{{ item.image }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				></image>
+			</swiper-item>
+			<swiper-item wx:else>
+				<image 
+				 class="swiper-image"
+				 src="{{ swiper_image_by_index }}"
 				 mode="aspectFit|aspectFill|widthFix"
 				></image>
 			</swiper-item>
 		</block>
 	</swiper>
 	<view class="pageCount">{{ page }}/{{ swiperLength }}</view>
+	<scroll-view 
+	enable-flex="true" 
+	scroll-x="true" 
+	class="small_images">
+		<view wx:for="{{ swiper }}" 
+		wx:key="index" 
+		bindtap="chooseSwiperImage" 
+		data-index="{{ index }}"
+		style="">
+			<image
+				 class="small_image_item"
+				 src="{{ item.image }}"
+				 mode="aspectFit|aspectFill|widthFix"
+				></image>
+		</view>
+	</scroll-view>
 	<!-- 产品区域 -->
 	<view class="product" bind-tap="onPageScroll">
 		<view class="top">
-			<view class="price">¥{{ products.shop_price }}</view>
+			<view class="price">
+				<view class="inside_price">
+					<view class="shop_price">¥{{ products.shop_price }}</view>
+					<view class="market_price">¥{{ products.market_price }}</view>
+				</view>
+				<view bindtap="changeLikeStatus">
+					<image class="like_icon" src="{{ like_status ? '/images/tabs/like_selected.png' : '/images/tabs/like.png' }}"></image>
+				</view>
+			</view>
 			<view class="title">
-				{{ products.product_name }}
+				{{ products.desc }}
 			</view>
 		</view>
 		<view class="bottom">
 			<view class="first">
 				<view class="chosen">已选</view>
 				<view class="title">
-					<text>{{ products.product_name }}     x{{ buy_count }}</text>
+					<text>{{ products.name }}     x{{ buy_count }}</text>
 					<image
 					 class="next-page"
 					 src="/images/tabs/nextPage.png"
@@ -130,92 +162,42 @@
 	<view class="description">
 		<view
 		 class="content"
-		 wx:for="{{ content }}"
+		 wx:for="{{ products.product_images }}"
 		 wx:key="index"
 		>
-			<image src="{{ item }}" mode="aspectFit|aspectFill|widthFix"></image>
+			<image src="{{ item.image }}" mode="aspectFit|aspectFill|widthFix"></image>
 		</view>
 		<view class="empty"></view>
 	</view>
-	<!-- 操作栏 -->
-	<view class="operation">
-		<view class="left">
-			<image
-			 wx:if="{{ favirate == false }}"
-			 class="favirate"
-			 src="/images/tabs/favirate.png"
-			 mode="scaleToFill"
-			 bindtap="favirateOrNot"
-			/>
-			<image
-			 wx:else
-			 class="favirate"
-			 src="/images/tabs/favirate-selected.png"
-			 mode="scaleToFill"
-			 bindtap="favirateOrNot"
-			/>
-		</view>
-		<view class="middle">
-			<image
-			 class="cart-page"
-			 src="/images/tabs/cart01.png"
-			 mode="scaleToFill"
-			 bindtap="navigateToCartPage"
-			></image>
-			<view class="cart-product-count">10</view>
-		</view>
-		<view class="right">
-			<view class="addCart-page">加入购物车</view>
-			<view class="buy-page">立即购买</view>
-		</view>
-	</view>
-	<!-- 商品选择详情框弹窗 -->
-	<view class="product-select-box" style="display: {{ popupShow ? 'block' : 'none' }}">
-		<view class="close" bindtap="closePopupBox">
-			<image
-			 class="close-image"
-			 src="/images/tabs/close.png"
-			 mode="scaleToFill"
-			></image>
-		</view>
-		<view class="prodcut-message">
-			<image
-			 class="prodcut-image"
-			 src="{{ content[0] }}"
-			 mode="scaleToFill"
-			></image>
-			<view class="right">
-				<view class="price">¥{{ products.shop_price }}</view>
-				<view class="title">{{ products.product_name }}</view>
-			</view>
-		</view>
-		<view class="count">
-			<view class="name">购买数量</view>
-			<view class="right">
-				<image
-				 wx:if="{{ lessStatus == true }}"
-				 src="/images/tabs/less.png"
-				 mode="scaleToFill"
-				 bind:tap="lessCount"
-				></image>
-				<image
-				 wx:else
-				 src="/images/tabs/less-ban.png"
-				 mode="scaleToFill"
-				 bind:tap="lessCount"
-				></image>
-				<text class="product-count">{{ buy_count }}</text>
-				<image
-				 src="/images/tabs/add.png"
-				 mode="scaleToFill"
-				 bind:tap="addCount"
-				></image>
-			</view>
-		</view>
-		<view class="button">
-			<view class="cart">加入购物车</view>
-			<view class="buy">立即购买</view>
-		</view>
-	</view>
+	<van-goods-action>
+		<van-icon name="chat-o" color="#ee0a24" />
+		<van-goods-action-icon icon="cart-o" text="购物车" info="5" />
+
+		<van-goods-action-button text="加入购物车" type="warning" />
+		<van-goods-action-button text="立即购买" />
+	</van-goods-action>
 </view>
 
+<van-popup
+  show="{{ popupShow }}"
+  round
+  position="bottom"
+	custom-style="height: 45%"
+	closeable="true"
+  bind:close="onClose"
+>
+	<view class="product_popup">
+		<view class="popup_image">
+			<van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+		</view>
+		<view class="popup_title">外国进口奶品dkjsfbwkfs fsl fslf s, sd,mn 发你的身份但是</view>
+	</view>
+	<view class="product_count">
+		<view>数量: </view>
+		<van-stepper value="{{ 1 }}" integer="true" bind:change="onChange" />
+	</view>
+	<view class="button_popup">
+		<view class="button_style left_button_color">加入购物车</view>
+		<view class="button_style right_button_color">立即购买</view>
+	</view>
+</van-popup>
