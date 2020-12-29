@@ -1,14 +1,16 @@
-<!--pages/components/templates/addressForm/addForm.wxml-->
 <view class="section">
 	<view class="content">
 		<form>
 			<view class="content-item">
 				<text>姓名</text>
-				<input placeholder="收件人姓名" bindinput="bindUserName" />
+				<input placeholder="收件人姓名"
+				placeholder-style="color: #B5B5B5"
+				bindinput="bindUserName" />
 			</view>
 			<view class="content-item">
 				<text>手机号</text>
-				<input placeholder="收件人手机号" bindinput="bindTelPhone" />
+				<input placeholder="收件人手机号"
+				placeholder-style="color: #B5B5B5" bindinput="bindTelPhone" />
 			</view>
 			<view class="content-item">
 				<text>省市区</text>
@@ -23,11 +25,15 @@
 			</view>
 			<view class="content-item">
 				<text>详细地址</text>
-				<input placeholder="要具体到街道、小区、门牌号等" bindinput="bindDetailInfo"></input>
+				<input placeholder="要具体到街道、小区、门牌号等" 
+				placeholder-style="color: #B5B5B5"
+				bindinput="bindDetailInfo"></input>
 			</view>
 			<view class="content-item">
 				<text>邮政编码</text>
-				<input placeholder="所在地邮政编码" bindinput="bindPostalCode"></input>
+				<input placeholder="所在地邮政编码" 
+				placeholder-style="color: #B5B5B5"
+				bindinput="bindPostalCode"></input>
 			</view>
 		</form>
 	</view>

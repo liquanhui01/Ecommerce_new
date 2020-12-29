@@ -87,9 +87,8 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "address",
-          "pathName": "pages/components/address/address",
+          "name": "addressList",
+          "pathName": "pages/components/addressList/addressList",
           "query": "",
           "scene": null
         },
@@ -196,6 +195,7 @@
         {
           "name": "更新用户信息",
           "pathName": "pages/components/updateUserInfo/updateUserInfo",
+          "query": "",
           "scene": null
         }
       ]

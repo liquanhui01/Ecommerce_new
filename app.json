@@ -9,7 +9,6 @@
     "pages/components/orderList/orderList",
     "pages/components/templates/orderTemplate/orderTemplate",
     "pages/components/templates/emptyPage/emptyPage",
-    "pages/components/address/address",
     "pages/components/templates/addressDetailPage/addressDetailPage",
     "pages/components/templates/addressForm/addressForm",
     "pages/components/integral/integral",
@@ -26,7 +25,8 @@
     "pages/components/phonePasswordLogin/phonePasswordLogin",
     "pages/components/wechatLogin/wechatLogin",
     "pages/components/userInfoDettail/userInfoDetail",
-    "pages/components/updateUserInfo/updateUserInfo"
+    "pages/components/updateUserInfo/updateUserInfo",
+    "pages/components/addressList/addressList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -78,6 +78,12 @@
     }
   },
   "usingComponents": {
+    "van-area": "@vant/weapp/area/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-card": "@vant/weapp/card/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-search": "@vant/weapp/search/index",
     "van-notify": "@vant/weapp/notify/index",
@@ -100,6 +106,7 @@
     "l-button": "lin-ui/button/index",
     "l-radio": "lin-ui/radio/index",
     "l-input": "lin-ui/input/index",
-    "l-collapse": "lin-ui/collapse/index"
+    "l-collapse": "lin-ui/collapse/index",
+    "l-slide-view": "lin-ui/slide-view/index"
   }
 }

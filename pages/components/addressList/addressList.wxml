@@ -1,0 +1,16 @@
+<view class="total">
+  <view class="address_total" wx:for="{{ addressInfo }}">
+    <view class="left">
+      <view class="first">{{ item.name[0] }}</view>
+    </view>
+    <view class="middle">
+      <view class="name_phone">
+        <view class="name">{{ item.name }}</view>
+        <view class="phone">{{ item.phone }}</view>
+      </view>
+      <view class="address">{{ item.address }}</view>
+    </view>
+    <view class="right">编辑</view>
+  </view>
+  <view class="button">新增收获地址</view>
+</view>

@@ -58,8 +58,9 @@
 					<view class="shop_price">¥{{ products.shop_price }}</view>
 					<view class="market_price">¥{{ products.market_price }}</view>
 				</view>
-				<view bindtap="changeLikeStatus">
+				<view class="like_total" bindtap="changeLikeStatus">
 					<image class="like_icon" src="{{ like_status ? '/images/tabs/like_selected.png' : '/images/tabs/like.png' }}"></image>
+					<view class="like_text">收藏</view>
 				</view>
 			</view>
 			<view class="title">

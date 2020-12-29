@@ -174,7 +174,7 @@ Page({
    */
   navigateToAddressPage: function () {
     utils.navigateCommonMethod(
-      "/pages/components/address/address?id=" + this.data.id
+      "/pages/components/addressList/addressList?id=" + this.data.id
     );
   },
   /*

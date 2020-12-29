@@ -95,11 +95,11 @@ page {
 }
 
 .top .price {
-  height: 50rpx;
-  line-height: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   position: relative;
   margin-left: 20rpx;
-  margin-top: 10rpx;
+  /* margin-top: 10rpx; */
   padding: 5rpx;
   display: flex;
   flex-direction: row;
@@ -113,7 +113,8 @@ page {
 
 .shop_price{
   color: red;
-  font-size: 34rpx;
+  font-size: 40rpx;
+  font-weight: 800;
   height: inherit;
   line-height: inherit;
 }
@@ -125,11 +126,24 @@ page {
   margin-left: 20rpx;
 }
 
+.like_total{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70rpx;
+  height: 70rpx;
+}
+
 .like_icon{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-right: 40rpx;
-  margin-top: -10rpx;
+}
+
+.like_text{
+  height: 20rpx;
+  line-height: 20rpx;
+  font-size: 18rpx;
 }
 
 .top .title {
@@ -511,9 +525,7 @@ page {
 }
 
 .left_button_color{
-  background: #FDC830;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: linear-gradient( 135deg, #FCCF31 10%, #F55555 100%);
 }
 
 .right_button_color{

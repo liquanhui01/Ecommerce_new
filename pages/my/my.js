@@ -94,7 +94,7 @@ Page({
    * 跳转到收货地址页面
    */
   addressPage: function () {
-    utils.navigateCommonMethod('/pages/components/address/address');
+    utils.navigateCommonMethod('/pages/components/addressList/addressList');
   },
   /*
    * 跳转到积分中心页面
