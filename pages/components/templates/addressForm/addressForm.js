@@ -1,5 +1,6 @@
 // pages/components/templates/addressForm/addForm.js
-var utils = require("../../../../utils/util.js");
+var utils = require("../../../../utils/util.js")
+import request from "../../../../utils/request.js"
 Page({
 
   /**
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     status: false,
-    region: ['北京市', '北京市', '朝阳区'],
+    region: ['省', '市', '区域'],
     addressInfo: {},
   },
   onLoad: function (options) {
@@ -40,13 +41,12 @@ Page({
   /* 
    * 获取地址选择器上的内容
    */
-  bindRegionChange: function (e) {
-    var region = e.detail.value
+  bindRegionChange: function (event) {
+    var regionList = event.detail.value
+    var region = regionList[0] + ' ' + regionList[1] + ' ' + regionList[2];
     this.setData({
-      region: region,
-      'addressInfo.privinceName': region[0],
-      'addressInfo.cityName': region[1],
-      'addressInfo.districtName': region[2]
+      region: regionList,
+      'addressInfo.region': region
     });
   },
   /*
@@ -70,7 +70,8 @@ Page({
    */
   commonShowToast(title) {
     wx.showToast({
-      title: title
+      title: title,
+      icon: 'none'
     })
   },
   /* 
@@ -181,13 +182,10 @@ Page({
    * 省市区的校验方法
    */
   privinceMethod: function () {
-    var privinceName = this.data.addressInfo.privinceName
-    if (!privinceName) {
-      this.setData({
-        'addressInfo.privinceName': this.data.region[0],
-        'addressInfo.cityName': this.data.region[1],
-        'addressInfo.districtName': this.data.region[2]
-      });
+    var region = this.data.addressInfo.region
+    console.log(region)
+    if (!region) {
+      this.commonShowToast('地址格式不正确')
     } else {
       this.userNameMethod();
     }

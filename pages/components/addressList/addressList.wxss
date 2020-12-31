@@ -26,7 +26,7 @@ page{
 }
 
 .first{
-  border: 1rpx solid #FF7F24;
+  border: 1rpx solid #CFCFCF;
   border-radius: 50%;
   width: 70rpx;
   height: 70rpx;
@@ -36,7 +36,7 @@ page{
   text-align: center;
   margin-top: 30rpx;
   margin-left: 20rpx;
-  background-color: #FF7F24;
+  background-color: #CFCFCF;
 }
 
 .middle{

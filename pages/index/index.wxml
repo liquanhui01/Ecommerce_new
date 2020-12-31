@@ -1,9 +1,13 @@
 <view class="total">
-	<!-- 搜索框 -->
-	<view class="find-product" bind:tap="navigateToFindPage">
-		<image class="find-product-icon" src="/images/tabs/find-white.png" mode="scaleToFill"></image>
-		<text>搜索</text>
-	</view>
+	<van-search
+		value="{{ value }}"
+		shape="round"
+		background="#5885CF"
+		placeholder="请输入搜索关键词"
+  	bind:search="testButton"
+	>
+		<view slot="action" bind:tap="onClick">搜索</view>
+	</van-search>
 	<!-- 轮播图区域 -->
 	<view class="swiper-total">
 		<swiper class="swiper" 

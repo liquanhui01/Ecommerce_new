@@ -5,7 +5,8 @@ const userLogin = "users/login/" // 验证码登陆
 const refreshToken = "api/token/refresh/" // 刷新Token
 const updatePhoneUser = "users/update/" // 更新手机用户信息
 const categoriesList = "products/categories/" // 获取分类列表信息
-const productDetail = "products/details/"
+const productDetail = "products/details/" // 获取商品详情
+const productsList = "products/list/" // 商品列表
 
 module.exports = {
   getVerifyCode,
@@ -15,5 +16,6 @@ module.exports = {
   refreshToken,
   updatePhoneUser,
   categoriesList,
-  productDetail
+  productDetail,
+  productsList
 }

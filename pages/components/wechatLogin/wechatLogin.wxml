@@ -9,7 +9,7 @@
     <view>我已阅读并同意</view>
     <view class="protocol-title" bind:tap="changeProtocolShow">《赛昂商城用户协议》</view>
   </view>
-  <view class="cancle-login">取消登陆</view>
+  <view class="cancle-login" bindtap="cancleLogin">取消登陆</view>
   <view class="protocol" hidden="{{ protocol_show }}">
     <image bind:tap="closeProtocolContent" src="{{ closeImageStatus ? '' : '/images/tabs/close.png' }}" />
     <scroll-view scroll-y="true">

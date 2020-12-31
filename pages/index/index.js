@@ -1,6 +1,7 @@
 // pages/index/index.js
 var utils = require('../../utils/util.js');
 import request from "../../utils/request.js"
+import api from "../api/api.js"
 Page({
   /**
    * 页面的初始数据
@@ -12,6 +13,7 @@ Page({
     ],
     categories: [
     ],
+    value: ""
   },
   /* 
    * 初始加载
@@ -38,5 +40,15 @@ Page({
     utils.navigateCommonMethod(
       "/pages/components/find/find"
     );
+  },
+  /* 
+   * 获取输入的搜索内容，并把内容传递给跳转到的页面
+   */
+  testButton: function(e){
+    var name = e.detail
+    utils.navigateCommonMethod("/pages/components/searchList/searchList?name=" + name)
+    this.setData({
+      value: ""
+    })
   }
 })

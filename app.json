@@ -26,7 +26,8 @@
     "pages/components/wechatLogin/wechatLogin",
     "pages/components/userInfoDettail/userInfoDetail",
     "pages/components/updateUserInfo/updateUserInfo",
-    "pages/components/addressList/addressList"
+    "pages/components/addressList/addressList",
+    "pages/components/searchList/searchList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -78,6 +79,8 @@
     }
   },
   "usingComponents": {
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "van-area": "@vant/weapp/area/index",
     "van-field": "@vant/weapp/field/index",
     "van-cell": "@vant/weapp/cell/index",

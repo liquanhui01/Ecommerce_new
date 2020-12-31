@@ -142,4 +142,12 @@ Page({
       this.getPermission();
     }
   },
+  /* 
+   * 取消登陆，并跳转到我的页面
+   */
+  cancleLogin: function(e){
+    wx.switchTab({
+      url: '/pages/my/my',
+    })
+  }
 })

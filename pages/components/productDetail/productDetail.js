@@ -124,12 +124,14 @@ Page({
       address = options.address,
       url = api.productDetail + id + "/"
     request._get(url, {}, "").then(res => {
+      console.log(res.data)
       this.setData({
         products: res.data,
         id: id,
         swiper: res.data.product_images,
         swiperLength: res.data.product_images.length
       })
+      console.log(this.data.swiper)
     }).catch(error => {})
   },
   /*

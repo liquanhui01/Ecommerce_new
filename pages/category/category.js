@@ -21,7 +21,6 @@ Page({
     var result = utils.commonGetStorage('category', now);
     if (result === "") {
       request._get(api.categoriesList, {}, "").then(res => {
-        console.log(res)
         this.setData({
           categories: res.data.results
         })
@@ -53,4 +52,12 @@ Page({
     var url = "/pages/components/productDetail/productDetail?id="+ id;
     utils.navigateCommonMethod(url);
   },
+  /* 
+   * 取消登陆，并跳转到我的页面
+   */
+  cancleLogin: function(e){
+    wx.switchTab({
+      url: '/pages/my/my',
+    })
+  }
 })
