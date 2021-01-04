@@ -1,1 +1,31 @@
-/* pages/components/searchList/searchList.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.page_total{
+  height: inherit;
+  width: inherit;
+}
+
+.page_title{
+  width: 100%;
+  height: 9%;
+}
+
+.page_body{
+  width: 100%;
+  height: 91%;
+}
+
+.total{
+  display: flex;
+  box-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sold_num{
+  color: red;
+}

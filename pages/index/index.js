@@ -9,11 +9,10 @@ Page({
   data: {
     swiper: [
     ],
-    boutiqueu: [
-    ],
     categories: [
     ],
-    value: ""
+    value: "",
+    products:[],
   },
   /* 
    * 初始加载
@@ -31,7 +30,27 @@ Page({
           url: '/pages/my/my',
         })
       }, 2000)
+    } else{
+      request._get(api.indexPageBanner, {}, "").then(res => {
+        console.log(res.data.results)
+        this.setData({
+          swiper: res.data.results
+        })
+      }).catch(error => {
+        console.log(error)
+      })
     }
+    request._get(api.productsList, {}, "").then(res => {
+      console.log(res.data.results)
+      this.setData({
+        products: res.data.results
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+    wx.lin.renderWaterFlow(this.data.products, false ,()=>{
+      console.log('渲染成功')
+    })
   },
   /*
    * 跳转到搜索商品页面
@@ -44,11 +63,18 @@ Page({
   /* 
    * 获取输入的搜索内容，并把内容传递给跳转到的页面
    */
-  testButton: function(e){
+  onSearch: function(e){
     var name = e.detail
     utils.navigateCommonMethod("/pages/components/searchList/searchList?name=" + name)
     this.setData({
       value: ""
     })
+  },
+  /* 
+   * 跳转到详情页面
+   */
+  navigateProductDetail: function(e){
+    var user_id = e.currentTarget.dataset.id
+    utils.navigateCommonMethod("/pages/components/productDetail/productDetail?id=" + user_id)
   }
 })

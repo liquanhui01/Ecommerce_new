@@ -2,9 +2,9 @@
 	<van-search
 		value="{{ value }}"
 		shape="round"
-		background="#5885CF"
+		background="#fff"
 		placeholder="请输入搜索关键词"
-  	bind:search="testButton"
+  	bind:search="onSearch"
 	>
 		<view slot="action" bind:tap="onClick">搜索</view>
 	</van-search>
@@ -69,44 +69,26 @@
 		精品展区
 	</view>
 	<!-- 精品推荐 -->
-	<view class="boutique-product">
-		<scroll-view 
-			class="boutique-product-scroll"
-			enable-flex="true"
-			scroll-x="true">
-			<view wx:for="{{ boutiqueu }}" wx:key="id" class="boutique-product-scroll-item">
-				<view class="boutique-product-scroll-image-box">
-					<image class="boutique-product-scroll-item-image" src="{{ item.image }}" mode="scaleToFill"></image>
+	<view class="boutique_product">
+		<scroll-view scroll-x="true" enable-flex="true" class="boutique_product_total">
+			<view class="item" wx:for="{{ products }}">
+				<view bindtap="navigateProductDetail" data-id="{{ item.id }}">
+					<image class="doutique_image" src="{{ item.products_front_image }}"></image>
+					<view class="boutique_name">{{ item.name }}</view>
 				</view>
-				<view class="boutique-product-scroll-item-title">{{ item.title }}</view>
-				<view class="boutique-product-scroll-item-price">¥{{ item.price }}</view>
 			</view>
 		</scroll-view>
 	</view>
 	<!-- 分割线 -->
 	<view class="dividing-line-new-product" style="margin-top: 5rpx">
-		分类展区
+		商品展区
 	</view>
-	<!-- 商品分类展示区域 -->
-	<view class="category">
-		<scroll-view 
-			class="category-tabs" 
-			scroll-x="true"
-			enable-flex="true"
-			>
-			<view>{{ categories[0].category}}</view>
-		</scroll-view>
-		<scroll-view 
-			class="category-products"
-			scroll-y="true"
-			enable-flex="true"
-			>
-			<view wx:for="{{ categories[0].products }}" class="test">
-				<block>
-					<image class="test-image" src="{{ item.image }}" mode="scaleToFill"></image>
-					<view class="category-products-title">测试</view>
-				</block>
-			</view>
-		</scroll-view>
+	<!-- 瀑布流展示所有的商品展示区域 -->
+	<view class="all_products">
+		<view wx:for="{{ products }}">
+			<l-water-flow generic:l-water-flow-item="l-demo" column-gap="20rpx">
+				<image src="{{ item.products_front_image }}"></image>
+			</l-water-flow>
+		</view>
 	</view>
 </view>

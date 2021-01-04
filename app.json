@@ -32,7 +32,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "电商平台",
+    "navigationBarTitleText": "赛昂商城",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
@@ -79,6 +79,8 @@
     }
   },
   "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-empty": "@vant/weapp/empty/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "van-area": "@vant/weapp/area/index",
@@ -110,6 +112,7 @@
     "l-radio": "lin-ui/radio/index",
     "l-input": "lin-ui/input/index",
     "l-collapse": "lin-ui/collapse/index",
-    "l-slide-view": "lin-ui/slide-view/index"
+    "l-slide-view": "lin-ui/slide-view/index",
+    "l-water-flow": "lin-ui/water-flow/index"
   }
 }

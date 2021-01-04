@@ -193,92 +193,44 @@ page{
 /*
  * 精品推荐
  */
-.boutique-product{
+.boutique_product{
 	width: 100%;
-	height: 370rpx;
+	height: 390rpx;
 	background-color: white;
 	position: relative;
 }
 
-.boutique-product-scroll{
+.boutique_product_total{
 	width: 100%;
-	height: 350rpx;
+	height: inherit;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
-	position: absolute;
-	top: 15rpx;
+	align-items: center;
 }
 
-.boutique-product-scroll-item{
-	flex: 1;
-	margin-left: 30rpx;
+.item{
+	width: 230rpx;
+	height: 300rpx;
+	white-space: wrap;
+	margin-left: 10rpx;
 }
 
-.boutique-product-scroll-image-box{
-	width: 250rpx;
-	height: 250rpx;
-	background-color: rgb(232, 232, 232, 0.3);
-	border-radius: 18rpx;
+.doutique_image{
+	width: 230rpx;
+	height: 260rpx;
+	border-top-left-radius: 15rpx;
+	border-top-right-radius: 15rpx;
 }
 
-.boutique-product-scroll-item-image{
-	width: 180rpx;
-	height: 180rpx;
-	margin-top: 35rpx;
-	margin-left: 35rpx;
-}
-
-.boutique-product-scroll-item-title{
-	color: 26rpx;
-}
-
-.boutique-product-scroll-item-price{
-	color: red;
+.boutique_name{
+	font-size: 24rpx;
 }
 
 /*
  * 商品分类展区
  */
-.category{
+.all_products{
 	width: 100%;
 	height: 1000rpx;
 	background-color: white;
-}
-
-.category-products{
-
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
-	background-color: rgb(232, 232, 232, 0.3);
-}
-
-.test{
-	width: 44%;
-	height: 400rpx;
-	margin-top: 20rpx;
-	margin-left: 3%;
-	margin-right: 3%;
-	border-top-left-radius: 15rpx;
-	border-top-right-radius: 15rpx;
-}
-
-.test block{
-	background-color: red;
-}
-
-.test-image{
-	width: 100%;
-	height: 80%;
-	border-top-left-radius: 15rpx;
-	border-top-right-radius: 15rpx;
-}
-
-.category-products-title{
-	width: 100%;
-	height: 40rpx;
-	color: 25rpx;
 }
