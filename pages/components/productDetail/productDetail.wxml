@@ -71,7 +71,7 @@
 			<view class="first">
 				<view class="chosen">已选</view>
 				<view class="title">
-					<text>{{ products.name }}     x{{ buy_count }}</text>
+					<text>{{ products.name }}     x{{ count }}</text>
 					<image
 					 class="next-page"
 					 src="/images/tabs/nextPage.png"
@@ -158,7 +158,9 @@
 		</view>
 	</view>
 	<!-- 分割线 -->
-	<view class="dividing-line">商品详情</view>
+	<view class="dividing-line">
+		<view class="dividing-content">商品详情</view>
+	</view>
 	<!-- 商品详情介绍区域 -->
 	<view class="description">
 		<view
@@ -189,16 +191,16 @@
 >
 	<view class="product_popup">
 		<view class="popup_image">
-			<van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+			<van-image width="80" height="80" src="{{ products.products_front_image }}" />
 		</view>
-		<view class="popup_title">外国进口奶品dkjsfbwkfs fsl fslf s, sd,mn 发你的身份但是</view>
+		<view class="popup_title">{{ products.name }}</view>
 	</view>
 	<view class="product_count">
 		<view>数量: </view>
-		<van-stepper value="{{ 1 }}" integer="true" bind:change="onChange" />
+		<van-stepper value="{{ count }}" integer="true" bind:change="onChange" />
 	</view>
 	<view class="button_popup">
-		<view class="button_style left_button_color">加入购物车</view>
+		<view class="button_style left_button_color" bindtap="navigateToShoppingCart">加入购物车</view>
 		<view class="button_style right_button_color">立即购买</view>
 	</view>
 </van-popup>

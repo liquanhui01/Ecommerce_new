@@ -10,6 +10,7 @@ const productsList = "products/list/" // 商品列表
 const searchListIsNew = "products/list/?is_new=true&name=" // 根据名字和是否是新品来获取指定商品的列表
 const searchListIsHot = "products/list/?is_hot=true&name=" // 根据名字和是否是热销品来获取指定商品的列表
 const indexPageBanner = "products/banners/" // 首页轮播图
+const shoppingCart = "operations/shoppingcart/" // 购物车增删改查
 
 
 module.exports = {

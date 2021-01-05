@@ -34,10 +34,21 @@ page {
 .nav-left-item {
   height: 100rpx;
   line-height: 100rpx;
+  position: relative;
 }
 
 .active {
-  color: #FF5000;
+  color: red;
+}
+
+.active::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 2px;
+  height: 60%;
+  background-color: red;
 }
 
 .sub_item {

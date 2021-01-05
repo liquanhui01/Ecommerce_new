@@ -3,10 +3,9 @@
 	<scroll-view class="nav-left">
 		<block wx:for="{{ categories }}" wx:key="id">
 			<view
-			 class="nav-left-item {{ curNav == item.id ? 'active' : ''}}"
+			 class="nav-left-item {{ curIndex == index ? 'active' : ''}}"
 			 bindtap="switchRightTab"
 			 data-index="{{ index }}"
-			 data-id="{{ item.id }}"
 			>{{ item.name }}
 			</view>
 		</block>

@@ -79,6 +79,8 @@
     }
   },
   "usingComponents": {
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-empty": "@vant/weapp/empty/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",

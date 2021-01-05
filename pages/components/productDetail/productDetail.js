@@ -89,11 +89,11 @@ Page({
       }
     ],
     favirate: false,
-    buy_count: 1,
     address: '请选择收货地址',
     small_show: false,
     currentIndex: 0,
-    like_status: false
+    like_status: false,
+    count: 1
   },
 
   /* 
@@ -196,36 +196,6 @@ Page({
     });
   },
   /*
-   * 增加商品数量
-   */
-  addCount: function (){
-    var count = this.data.buy_count;
-    this.setData({
-      buy_count: count + 1
-    });
-  },
-  /*
-   * 减少商品数量
-   */
-  lessCount: function (){
-    var count = this.data.buy_count;
-    if(count > 1){
-        this.setData({
-          lessStatus: true,
-          buy_count: count - 1
-      });
-    } else {
-      this.setData({
-        lessStatus: false
-      });
-      wx.showToast({
-        title: "商品数量不能小于1件",
-        icon: 'none',
-        duration: 2000
-      });
-    }
-  },
-  /*
    * 点击跳转到所有评论页面
    */
   navigateToEvaluationsPage: function () {
@@ -255,6 +225,26 @@ Page({
   changeLikeStatus: function(e){
     this.setData({
       like_status: !this.data.like_status
+    })
+  },
+  /* 
+   * 点击修改商品的数量
+   */
+  onChange: function(e){
+    this.setData({
+      count: e.detail
+    })
+  },
+  /* 
+   * 跳转到购物车页面
+   */
+  navigateToShoppingCart: function(e){
+    let id = this.data.id,
+      name = this.data.products.name,
+      image = this.data.products.products_front_image,
+      count = this.data.count;
+    wx.switchTab({
+      url: '/pages/order/order?id=' + id + '&name=' + name + '&image=' + image + "&count=" + count,
     })
   }
 })

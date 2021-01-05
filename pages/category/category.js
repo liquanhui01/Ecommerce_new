@@ -10,7 +10,7 @@ Page({
   data: {
     categories: [],
     curNav: 1,
-    curIndex: 0, 
+    curIndex: 0,
   },
   /*
    * 页面加载时直接从缓存中获取分类信息，如果获取到则赋值给变量
@@ -38,9 +38,7 @@ Page({
    */
   switchRightTab: function (e) {
     let index = e.currentTarget.dataset.index;
-    let id = e.currentTarget.dataset.id;
     this.setData({
-      curNav: id,
       curIndex: index
     });
   },
@@ -59,5 +57,5 @@ Page({
     wx.switchTab({
       url: '/pages/my/my',
     })
-  }
+  },
 })

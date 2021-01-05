@@ -1,0 +1,20 @@
+<l-card full type="cover" image="{{data.products_front_image}}" title="{{data.name}}" l-class="life-container" l-img-class="life-img" l-title-class="life-title" bind:tap="onProduct" data-id="{{ data.id }}">
+  <view class='life-product-contianer'>
+    <view class='art-content'>{{data.desc}}</view>
+    <view class='price-container'>
+      <l-price unit="￥" value="{{data.shop_price}}" value-color="#ad0e11" unit-color="#ad0e11" value-size="36"></l-price>
+      <l-price l-class="del-price" unit="￥" value="{{data.market_price}}" value-color="#ad0e11" unit-color="#ad0e11" deleted del-color="#666" value-color="#666" unit-color="#666"></l-price>
+    </view>
+    <view class="tag">
+      <view wx:if="{{ data.is_new }}" class="tag_item">
+        <van-tag type="danger">新品</van-tag>
+      </view>
+      <view wx:if="{{ data.is_hot }}" class="tag_item">
+        <van-tag type="danger">热卖</van-tag>
+      </view>
+      <view wx:if="{{ data.is_boutique }}" class="tag_item">
+        <van-tag type="danger">精品</van-tag>
+      </view>
+    </view>
+  </view>
+</l-card>

@@ -13,6 +13,8 @@ Page({
     ],
     value: "",
     products:[],
+    page: 1,
+    next: ""
   },
   /* 
    * 初始加载
@@ -32,7 +34,6 @@ Page({
       }, 2000)
     } else{
       request._get(api.indexPageBanner, {}, "").then(res => {
-        console.log(res.data.results)
         this.setData({
           swiper: res.data.results
         })
@@ -40,16 +41,15 @@ Page({
         console.log(error)
       })
     }
-    request._get(api.productsList, {}, "").then(res => {
-      console.log(res.data.results)
+    request._get(api.productsList + "?page=" + this.data.page, {}, "").then(res => {
+      let next = res.data.next
       this.setData({
-        products: res.data.results
+        products: res.data.results,
+        next: next
       })
+      wx.lin.renderWaterFlow(this.data.products)
     }).catch(error => {
       console.log(error)
-    })
-    wx.lin.renderWaterFlow(this.data.products, false ,()=>{
-      console.log('渲染成功')
     })
   },
   /*
@@ -64,7 +64,7 @@ Page({
    * 获取输入的搜索内容，并把内容传递给跳转到的页面
    */
   onSearch: function(e){
-    var name = e.detail
+    let name = e.detail
     utils.navigateCommonMethod("/pages/components/searchList/searchList?name=" + name)
     this.setData({
       value: ""
@@ -76,5 +76,27 @@ Page({
   navigateProductDetail: function(e){
     var user_id = e.currentTarget.dataset.id
     utils.navigateCommonMethod("/pages/components/productDetail/productDetail?id=" + user_id)
+  },
+  /* 
+   * 触底刷新
+   */
+  onReachBottom: function(){
+    var page = this.data.page + 1,
+      next = this.data.next;
+    if(next){
+      request._get(next, {}, "", {}, 2).then(res => {
+        console.log(res)
+        var next = res.data.next;
+        this.setData({
+          products: res.data.results,
+          next: next
+        })
+        wx.lin.renderWaterFlow(this.data.products)
+      }).catch(error => {
+        console.log(error)
+      })
+    } else {
+      console.log("最后一页")
+    }
   }
 })

@@ -72,7 +72,7 @@
 	<view class="boutique_product">
 		<scroll-view scroll-x="true" enable-flex="true" class="boutique_product_total">
 			<view class="item" wx:for="{{ products }}">
-				<view bindtap="navigateProductDetail" data-id="{{ item.id }}">
+				<view bindtap="navigateProductDetail" data-id="{{ item.id }}" wx:if="{{ item.is_boutique }}">
 					<image class="doutique_image" src="{{ item.products_front_image }}"></image>
 					<view class="boutique_name">{{ item.name }}</view>
 				</view>
@@ -85,10 +85,7 @@
 	</view>
 	<!-- 瀑布流展示所有的商品展示区域 -->
 	<view class="all_products">
-		<view wx:for="{{ products }}">
-			<l-water-flow generic:l-water-flow-item="l-demo" column-gap="20rpx">
-				<image src="{{ item.products_front_image }}"></image>
-			</l-water-flow>
-		</view>
+		<l-water-flow generic:l-water-flow-item="my_water_flow" column-gap="20rpx">
+		</l-water-flow>
 	</view>
 </view>
