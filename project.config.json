@@ -127,12 +127,6 @@
           "scene": null
         },
         {
-          "name": "首页",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "搜索页面",
           "pathName": "pages/components/find/find",
           "query": "",
@@ -195,6 +189,12 @@
         {
           "name": "更新用户信息",
           "pathName": "pages/components/updateUserInfo/updateUserInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购物车页面",
+          "pathName": "pages/cart/cart",
           "query": "",
           "scene": null
         }

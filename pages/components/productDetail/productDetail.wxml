@@ -176,7 +176,7 @@
 		<van-icon name="chat-o" color="#ee0a24" />
 		<van-goods-action-icon icon="cart-o" text="购物车" info="5" />
 
-		<van-goods-action-button text="加入购物车" type="warning" />
+		<van-goods-action-button text="加入购物车" type="warning" bindtap="shoppingCart" data-price="{{ products.shop_price }}"></van-goods-action-button>
 		<van-goods-action-button text="立即购买" />
 	</van-goods-action>
 </view>
@@ -200,7 +200,7 @@
 		<van-stepper value="{{ count }}" integer="true" bind:change="onChange" />
 	</view>
 	<view class="button_popup">
-		<view class="button_style left_button_color" bindtap="navigateToShoppingCart">加入购物车</view>
+		<view class="button_style left_button_color" bindtap="shoppingCart" data-price="{{ products.shop_price }}">加入购物车</view>
 		<view class="button_style right_button_color">立即购买</view>
 	</view>
 </van-popup>

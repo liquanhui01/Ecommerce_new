@@ -1,6 +1,6 @@
 var utils = require("../../../utils/util.js");
-import request from '../../../utils/request.js'
-import api from '../../api/api.js'
+import request from '../../../utils/request.js';
+import api from '../../api/api.js';
 Page({
 
   /**
@@ -93,7 +93,8 @@ Page({
     small_show: false,
     currentIndex: 0,
     like_status: false,
-    count: 1
+    count: 1,
+    token: {}
   },
 
   /* 
@@ -122,16 +123,18 @@ Page({
     var id = options.id,
       key = 'id' + id,
       address = options.address,
-      url = api.productDetail + id + "/"
+      url = api.productDetail + id + "/",
+      now = Date.parse(new Date()),
+      token = utils.commonGetStorage('access_token', now);
     request._get(url, {}, "").then(res => {
       console.log(res.data)
       this.setData({
         products: res.data,
         id: id,
         swiper: res.data.product_images,
-        swiperLength: res.data.product_images.length
+        swiperLength: res.data.product_images.length,
+        token: token
       })
-      console.log(this.data.swiper)
     }).catch(error => {})
   },
   /*
@@ -236,15 +239,39 @@ Page({
     })
   },
   /* 
-   * 跳转到购物车页面
+   * 提交购物信息到后台
    */
-  navigateToShoppingCart: function(e){
-    let id = this.data.id,
-      name = this.data.products.name,
-      image = this.data.products.products_front_image,
-      count = this.data.count;
-    wx.switchTab({
-      url: '/pages/order/order?id=' + id + '&name=' + name + '&image=' + image + "&count=" + count,
-    })
+  shoppingCart: function(e){
+    let products_id = this.data.id,
+      price = e.target.dataset.price,
+      total_price = this.data.count * price,
+      access_token = this.data.token.access_token,
+      refresh = this.data.token.refresh,
+      user_id = this.data.token.id,
+      total_token = "Bearer " + access_token,
+      shopping_data = {
+        products: products_id,
+        user: user_id,
+        count: this.data.count,
+        total_price: total_price,
+        operate_type: "cre"
+      };
+    console.log(total_price)
+    if(!this.data.token.access_token){
+      wx.showToast({
+        title: '请先登陆账户',
+        icon: 'none'
+      })
+      setTimeout(() => {
+        wx.switchTab({url: '/pages/my/my',})
+      }, 1000)
+    } else {
+      request._post(api.shoppingCart, shopping_data, total_token).then(res => {
+
+        console.log(products_id)
+      }).catch(error => {
+        console.log(error)
+      })
+    }
   }
 })

@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/category/category",
     "pages/my/my",
-    "pages/order/order",
+    "pages/cart/cart",
     "pages/components/fetch/fetch",
     "pages/member/member",
     "pages/components/orderList/orderList",
@@ -57,7 +57,7 @@
         "selectedIconPath": "images/tabs/member-selected.png"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/cart/cart",
         "text": "购物车",
         "iconPath": "images/tabs/cart.png",
         "selectedIconPath": "images/tabs/cart-selected.png"
@@ -79,6 +79,12 @@
     }
   },
   "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-sidebar": "@vant/weapp/sidebar/index",
     "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
@@ -115,6 +121,8 @@
     "l-input": "lin-ui/input/index",
     "l-collapse": "lin-ui/collapse/index",
     "l-slide-view": "lin-ui/slide-view/index",
-    "l-water-flow": "lin-ui/water-flow/index"
+    "l-water-flow": "lin-ui/water-flow/index",
+    "l-checkbox-group": "lin-ui/checkbox-group/index",
+    "l-checkbox": "lin-ui/checkbox/index"
   }
 }

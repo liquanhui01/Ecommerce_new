@@ -25,5 +25,6 @@ module.exports = {
   productsList,
   searchListIsNew,
   searchListIsHot,
-  indexPageBanner
+  indexPageBanner,
+  shoppingCart
 }

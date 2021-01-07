@@ -21,8 +21,14 @@ Page({
    */
   onLoad: function(option){
     var result = wx.getStorageSync('access_token').data_content
+    request._get(api.indexPageBanner, {}, "").then(res => {
+      this.setData({
+        swiper: res.data.results
+      })
+    }).catch(error => {
+      console.log(error)
+    })
     if(!result){
-      // request.commonToast("请先登陆账户")
       wx.showToast({
         title: '请先登陆账户',
         icon: 'none'
@@ -33,13 +39,6 @@ Page({
         })
       }, 2000)
     } else{
-      request._get(api.indexPageBanner, {}, "").then(res => {
-        this.setData({
-          swiper: res.data.results
-        })
-      }).catch(error => {
-        console.log(error)
-      })
     }
     request._get(api.productsList + "?page=" + this.data.page, {}, "").then(res => {
       let next = res.data.next
@@ -98,5 +97,13 @@ Page({
     } else {
       console.log("最后一页")
     }
+  },
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //启用标题栏显示加载状态
+    this.onLoad() //调用相关方法
+    setTimeout(() => {
+      wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
+      wx.stopPullDownRefresh() //结束刷新
+    }, 400); //设置执行时间
   }
 })

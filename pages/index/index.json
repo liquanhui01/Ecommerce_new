@@ -3,5 +3,6 @@
     "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index",
     "my_water_flow": "../../components/my_water_flow/my_water_flow"
   },
-  "navigationBarBackgroundColor": "#fff"
+  "navigationBarBackgroundColor": "#fff",
+  "enablePullDownRefresh": true
 }

@@ -13,7 +13,7 @@ const http = ({url, method, data, token, content_type="application/json", url_ty
       data: data || {},
       header: {
         "content_type": content_type,
-        Authorizaton: token || ""
+        "Authorization": token || ""
       },
       success: res => {
         console.log(url)
