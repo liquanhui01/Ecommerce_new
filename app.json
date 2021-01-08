@@ -70,9 +70,6 @@
       }
     ]
   },
-  "useExtendedLib": {
-    "weui": true
-  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
@@ -123,6 +120,8 @@
     "l-slide-view": "lin-ui/slide-view/index",
     "l-water-flow": "lin-ui/water-flow/index",
     "l-checkbox-group": "lin-ui/checkbox-group/index",
-    "l-checkbox": "lin-ui/checkbox/index"
+    "l-checkbox": "lin-ui/checkbox/index",
+    "l-price": "lin-ui/price/index",
+    "l-counter": "lin-ui/counter/index"
   }
 }

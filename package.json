@@ -5,8 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "@vant/weapp": "^1.6.3",
-    "lin-ui": "^0.8.13",
-    "weui-miniprogram": "^1.0.6"
+    "lin-ui": "^0.8.13"
   },
   "devDependencies": {},
   "scripts": {

@@ -32,14 +32,6 @@ page{
   align-items: center;
 }
 
-.total{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #fafafa;
-}
-
 .button{
   width: 65px;
   height: inherit;
@@ -50,26 +42,97 @@ page{
   color: white;
 }
 
-.cancelButton{
-  width: 65px;
-  height: inherit;
+.right{
+  height: 240rpx;
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
   justify-content: center;
-  color: yellow;
+  align-items: center;
+  text-align: center;
+  line-height: 240rpx;
+}
+
+.right view{
+  flex: 1;
+  color: white;
 }
 
 .left{
-  background-color: #2E8B57;
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.middle{
-  background-color: red;
+.cart_content{
+  width: 100%;
+  margin-left: 15rpx;
+  padding-top: 15rpx;
+  position: relative;
 }
 
-.right{
-  background-color: yellow;
+.title{
+  font-size: 29rpx;
+  font-weight: 500;
+}
+
+.desc{
+  color: gray;
+  font-size: 26rpx;
+}
+
+.price{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 180rpx;
+}
+
+.count{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-right: 15rpx;
+}
+
+.count_content{
+  width: 100rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+
+.product_image image{
+  width: 220rpx;
+  height: 220rpx;
+  margin-top: 15rpx;
+  margin-left: 20rpx;
+}
+
+.selected{
+  height: inherit;
+  background-color: #66B2FF;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cancel{
+  height: inherit;
+  background-color: #3399FF;
+}
+
+.delete{
+  height: inherit;
+  background-color: #F4516C;
 }
 
 .all_selected{

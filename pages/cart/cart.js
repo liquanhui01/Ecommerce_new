@@ -24,20 +24,35 @@ Page({
       token = utils.commonGetStorage("access_token", now),
       total_token = "Bearer " + token.access_token;
     request._get(api.shoppingCart, {}, total_token).then(res => {
-      console.log(res.data.results)
       this.setData({
         products: res.data.results,
-        token: token
+        token: token.access_token
       })
     }).catch(error => {
       console.log(error)
     })
   },
+  /* 
+   * 刷新
+   */
+  onShow: function(e){
+    var total_token = "Bearer " + this.data.token;
+    request._get(api.shoppingCart, {}, total_token).then(res => {
+      this.setData({
+        products: res.data.results,
+        products_list: res.data.results,
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  /* 
+   * 增加商品数量
+   */
   addCount: function(e){
-    console.log(e)
-    var products_id = e.target.dataset.id,
+    var products_id = e.target.dataset.proid,
       price = e.target.dataset.price,
-      total_token = "Bearer " + this.data.token.access_token,
+      total_token = "Bearer " + this.data.token,
       user_id = this.data.token.id,
       shopping_data = {
         products: products_id,
@@ -52,11 +67,13 @@ Page({
       console.log(error)
     })
   },
+  /* 
+   * 减少商品数量
+   */
   deleteCount: function(e){
     var products_id = e.target.dataset.proid,
       price = e.target.dataset.price,
-      id = e.target.dataset.id,
-      total_token = "Bearer " + this.data.token.access_token,
+      total_token = "Bearer " + this.data.token,
       user_id = this.data.token.id,
       shopping_data = {
         products: products_id,
@@ -70,7 +87,6 @@ Page({
       }).catch(error => {
         console.log(error)
       })
-    // }
   },
   /* 
    * 点击是否全选
@@ -97,13 +113,56 @@ Page({
   /* 
    * 删除指定的购物车商品
    */
-  deleteCartProoduct: function(e){
+  deleteCartProduct: function(e){
     let products_id = e.target.dataset.id,
-      total_token = "Bearer " + this.data.token.access_token
+      total_price = e.target.dataset.totalprice,
+      cart_total_price = this.data.cart_total_price,
+      total_token = "Bearer " + this.data.token;
     request._delete(api.shoppingCart + products_id, {}, total_token).then(res => {
       this.onLoad()
+      this.setData({
+        cart_total_price: cart_total_price - total_price
+      })
     }).catch(error => {
       console.log(error)
     })
-  }
+  },
+  /* 
+   * 取消选择某个商品购物
+   */
+  cancelCartProduct: function(e){
+    let index = e.target.dataset.index,
+      total_price = e.target.dataset.totalprice,
+      cart_total_price = this.data.cart_total_price;
+    this.setData({
+      cart_total_price: cart_total_price - total_price
+    })
+    if(cart_total_price == 0.00){
+      this.setData({
+        all_selected: false
+      })
+    }
+  },
+  /* 
+   * 选择某个商品购物
+   */
+  selecteCartProduct: function(e){
+    let index = e.target.dataset.index,
+      total_price = e.target.dataset.totalprice,
+      cart_total_price = this.data.cart_total_price;
+    this.setData({
+      cart_total_price: cart_total_price + total_price
+    })
+  },
+  /* 
+   * 下拉刷新
+   */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //启用标题栏显示加载状态
+    this.onShow() //调用相关方法
+    setTimeout(() => {
+      wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
+      wx.stopPullDownRefresh() //结束刷新
+    }, 400); //设置执行时间
+  },
 })
