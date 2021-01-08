@@ -1,44 +1,86 @@
 <view class="total_page">
-  <view class="top">
-    <scroll-view scroll-y="true" enable-flex="true" wx:for="{{ products }}">
-      <l-slide-view height="250" width="750" slide-width="340" auto-close="true" >
-        <view slot="left" class="left">
-          <view class='product_image'>
-            <image src="{{ item.products.products_front_image }}" />
-          </view>
-          <view class="cart_content">
-            <view class="title">{{ item.products.name }}</view>
-            <view class="desc">{{ item.products.desc }}</view>
-            <view class="price">
-              <view class="product_price">
-                <l-price unit="￥" value="{{ item.products.shop_price }}" color="red" size="37" reserve-digit="2"></l-price>
-                <l-price unit="￥" value="{{ item.products.market_price }}" color="gray" deleted="true" reserve-digit="2"></l-price>
-              </view>
-              <view class="count">
-                <van-stepper value="{{ item.count }}"  min="1" max="30" bind:change="onChange" disable-input="true" bind:plus="addCount" bind:minus="deleteCount" data-proid="{{ item.products.id }}" data-price="{{ item.products.shop_price }}"/>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view slot="right" class="right">
-          <view class="selected" bind:tap="selecteCartProduct" data-totalprice="{{ index.total_price }}" data-index="{{ index }}">选择</view>
-          <view class="cancel" bind:tap="cancelCartProduct" data-totalprice="{{ index.total_price }}" data-index="{{ index }}">取消</view>
-          <view class="delete" bind:tap="deleteCartProduct" data-id="{{ item.products.id }}" data-totalprice="{{ index.total_price }}">删除</view>
-        </view>
-      </l-slide-view>
-    </scroll-view>
-  </view>
-  <view class="bottom">
-    <view class="all_selected" bind:tap="changeSelecte">
-      <van-icon size="36rpx" name="certificate" color="{{ all_selected ? 'red' : '#CFCFCF' }}" />
-      <view class="all_selected_title">全部</view>
-    </view>
-    <view class="total_price">
-      <text class="total_price_title" decode="{{true}}" space="{{true}}">合计:&nbsp;  </text>
-      <text class="total_price_content">{{ all_selected ?  cart_total_price : 0.00 }}</text>
-    </view>
-    <view class="bottom_button">
-      <van-button color="red" round="true">提交订单</van-button>
-    </view>
-  </view>
+	<view class="top">
+		<scroll-view scroll-y="true" enable-flex="true" wx:for="{{ products }}">
+			<van-checkbox-group
+			 value="{{ result }}"
+			 bind:change="onChange"
+			 data-id="{{ id }}"
+			 data-totalprice="{{ item.total_price }}"
+			>
+				<view class="">
+					<van-checkbox name="{{ item.id }}" checked-color="red" custom-class="checkout" />
+					<l-slide-view
+					 height="250"
+					 width="750"
+					 slide-width="150"
+					 auto-close="true"
+					>
+						<view slot="left" class="left">
+							<view class='product_image'>
+								<image src="{{ item.products.products_front_image }}" />
+							</view>
+							<view class="cart_content">
+								<view class="title">{{ item.products.name }}</view>
+								<view class="desc">{{ item.products.desc }}</view>
+								<view class="price">
+									<view class="product_price">
+										<l-price
+										 unit="￥"
+										 value="{{ item.products.shop_price }}"
+										 color="red"
+										 size="37"
+										 reserve-digit="2"
+										/>
+										<l-price
+										 unit="￥"
+										 value="{{ item.products.market_price }}"
+										 color="gray"
+										 deleted="true"
+										 reserve-digit="2"
+										/>
+									</view>
+									<view class="count">
+										<van-stepper
+										 value="{{ item.count }}"
+										 min="1"
+										 max="30"
+										 bind:change="onChange"
+										 disable-input="true"
+										 bind:plus="addCount"
+										 bind:minus="deleteCount"
+										 data-proid="{{ item.products.id }}"
+										 data-price="{{ item.products.shop_price }}"
+										/>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view slot="right" class="right">
+							<view
+							 class="delete"
+							 bind:tap="deleteCartProduct"
+							 data-id="{{ item.products.id }}"
+							 data-totalprice="{{ index.total_price }}"
+							>删除
+							</view>
+						</view>
+					</l-slide-view>
+				</view>
+			</van-checkbox-group>
+		</scroll-view>
+	</view>
+	<view class="bottom">
+		<view class="all_selected" bind:tap="changeSelecte">
+			<van-icon size="36rpx" name="certificate" color="{{ all_selected ? 'red' : '#CFCFCF' }}" />
+			<view class="all_selected_title">全部</view>
+		</view>
+		<view class="total_price">
+			<text class="total_price_title" decode="{{true}}" space="{{true}}">合计:&nbsp;  </text>
+			<text class="total_price_content">{{ all_selected ?  cart_total_price : 0.00 }}</text>
+		</view>
+		<view class="bottom_button">
+			<van-button color="red" round="true">提交订单</van-button>
+		</view>
+	</view>
 </view>
+

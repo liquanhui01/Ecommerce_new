@@ -177,3 +177,8 @@ page{
   align-items: center;
   padding-right: 30rpx;
 }
+
+.checkout{
+  margin-left: 20rpx;
+  margin-top: 40rpx;
+}
